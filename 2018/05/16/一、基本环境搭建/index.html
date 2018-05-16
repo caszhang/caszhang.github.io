@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gztar zxvf go1.9.linux-amd64.tar.gzmv g">
+<meta name="description" content="本文操作是centos环境下操作，其他linux版本／mac环境类似 yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gzta">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一、基本环节搭">
-<meta property="og:url" content="http://yoursite.com/2018/05/16/一、基本环节搭/index.html">
+<meta property="og:title" content="一、基本环节搭建">
+<meta property="og:url" content="http://yoursite.com/2018/05/16/一、基本环境搭建/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gztar zxvf go1.9.linux-amd64.tar.gzmv g">
+<meta property="og:description" content="本文操作是centos环境下操作，其他linux版本／mac环境类似 yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gzta">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-16T03:49:07.000Z">
+<meta property="og:updated_time" content="2018-05-16T03:56:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一、基本环节搭">
-<meta name="twitter:description" content="yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gztar zxvf go1.9.linux-amd64.tar.gzmv g">
+<meta name="twitter:title" content="一、基本环节搭建">
+<meta name="twitter:description" content="本文操作是centos环境下操作，其他linux版本／mac环境类似 yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gzta">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/16/一、基本环节搭/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/16/一、基本环境搭建/"/>
 
 
 
 
 
-  <title>一、基本环节搭 | 余道技术</title>
+  <title>一、基本环节搭建 | 余道技术</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/一、基本环节搭/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/一、基本环境搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="caszhang">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一、基本环节搭</h1>
+          <h1 class="post-title" itemprop="name headline">一、基本环节搭建</h1>
         
 
         <div class="post-meta">
@@ -300,9 +300,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/16/一、基本环节搭/#comments" itemprop="discussionUrl">
+                <a href="/2018/05/16/一、基本环境搭建/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/16/一、基本环节搭/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/05/16/一、基本环境搭建/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -330,7 +330,8 @@
       
 
       
-        <p>yum update -y &amp;&amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -y<br>wget <a href="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz" target="_blank" rel="noopener">https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz</a><br>tar zxvf go1.9.linux-amd64.tar.gz<br>mv go /usr/local/<br>echo “export GOROOT=/usr/local/go” &gt;&gt; /etc/profile<br>echo “export PATH=$PATH:/usr/local/go/bin” &gt;&gt; /etc/profile<br>source /etc/profile<br>git clone <a href="https://github.com/ethereum/go-ethereum.git" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum.git</a><br>cd  go-ethereum<br>git checkout v1.7.2<br>make geth<br>make all<br>geth version<br>echo “export PATH=$PATH:/root/go-ethereum/build/bin” &gt;&gt; /etc/profile<br>source /etc/profile<br>cd &amp;&amp; wget <a href="https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz" target="_blank" rel="noopener">https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz</a><br>tar -xzvf cmake-3.9.2.tar.gz<br>cd cmaker-3.9.2<br>./bootstrap &amp;&amp; make &amp;&amp; makeinstall<br>systemctl enable ntpd<br>systemctl start ntpd<br>防火墙和开放默认# 另外geth会用到8078和30303端口，放开防火墙端口 8078与30303</p>
+        <p>本文操作是centos环境下操作，其他linux版本／mac环境类似</p>
+<p>yum update -y &amp;&amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -y<br>wget <a href="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz" target="_blank" rel="noopener">https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz</a><br>tar zxvf go1.9.linux-amd64.tar.gz<br>mv go /usr/local/<br>echo “export GOROOT=/usr/local/go” &gt;&gt; /etc/profile<br>echo “export PATH=$PATH:/usr/local/go/bin” &gt;&gt; /etc/profile<br>source /etc/profile<br>git clone <a href="https://github.com/ethereum/go-ethereum.git" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum.git</a><br>cd  go-ethereum<br>git checkout v1.7.2<br>make geth<br>make all<br>geth version<br>echo “export PATH=$PATH:/root/go-ethereum/build/bin” &gt;&gt; /etc/profile<br>source /etc/profile<br>cd &amp;&amp; wget <a href="https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz" target="_blank" rel="noopener">https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz</a><br>tar -xzvf cmake-3.9.2.tar.gz<br>cd cmaker-3.9.2<br>./bootstrap &amp;&amp; make &amp;&amp; makeinstall<br>systemctl enable ntpd<br>systemctl start ntpd<br>防火墙和开放默认# 另外geth会用到8078和30303端口，放开防火墙端口 8078与30303</p>
 
       
     </div>
@@ -655,9 +656,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/05/16/一、基本环节搭/';
-          this.page.identifier = '2018/05/16/一、基本环节搭/';
-          this.page.title = '一、基本环节搭';
+          this.page.url = 'http://yoursite.com/2018/05/16/一、基本环境搭建/';
+          this.page.identifier = '2018/05/16/一、基本环境搭建/';
+          this.page.title = '一、基本环节搭建';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
