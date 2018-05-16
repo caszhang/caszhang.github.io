@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="本文操作是centos环境下操作，其他linux版本／mac环境类似 yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gzta">
+<meta name="description" content="mkdir threecd threevi genesis.jsongeth init ./genesis.json –datadir “./chain”geth \  –identity “mshk.top etherum” \  –rpcaddr 0.0.0.0 \  –rpc \  –rpcport 8545 \  –maxpeers 2 \  –rpcapi “db,eth,net,web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一、基本环节搭建">
-<meta property="og:url" content="http://yoursite.com/2018/05/16/一、基本环境搭建/index.html">
+<meta property="og:title" content="五、将智能合约部署到 Geth 1.7.2 私有链">
+<meta property="og:url" content="http://yoursite.com/2018/05/16/五、将智能合约部署到-Geth-1-7-2-私有链/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="本文操作是centos环境下操作，其他linux版本／mac环境类似 yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gzta">
+<meta property="og:description" content="mkdir threecd threevi genesis.jsongeth init ./genesis.json –datadir “./chain”geth \  –identity “mshk.top etherum” \  –rpcaddr 0.0.0.0 \  –rpc \  –rpcport 8545 \  –maxpeers 2 \  –rpcapi “db,eth,net,web">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-16T03:56:15.000Z">
+<meta property="og:updated_time" content="2018-05-16T04:39:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一、基本环节搭建">
-<meta name="twitter:description" content="本文操作是centos环境下操作，其他linux版本／mac环境类似 yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gzta">
+<meta name="twitter:title" content="五、将智能合约部署到 Geth 1.7.2 私有链">
+<meta name="twitter:description" content="mkdir threecd threevi genesis.jsongeth init ./genesis.json –datadir “./chain”geth \  –identity “mshk.top etherum” \  –rpcaddr 0.0.0.0 \  –rpc \  –rpcport 8545 \  –maxpeers 2 \  –rpcapi “db,eth,net,web">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/16/一、基本环境搭建/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/16/五、将智能合约部署到-Geth-1-7-2-私有链/"/>
 
 
 
 
 
-  <title>一、基本环节搭建 | 余道技术</title>
+  <title>五、将智能合约部署到 Geth 1.7.2 私有链 | 余道技术</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/一、基本环境搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/五、将智能合约部署到-Geth-1-7-2-私有链/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="caszhang">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一、基本环节搭建</h1>
+          <h1 class="post-title" itemprop="name headline">五、将智能合约部署到 Geth 1.7.2 私有链</h1>
         
 
         <div class="post-meta">
@@ -281,7 +281,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T11:47:58+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T12:38:18+08:00">
                 2018-05-16
               </time>
             
@@ -300,9 +300,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/16/一、基本环境搭建/#comments" itemprop="discussionUrl">
+                <a href="/2018/05/16/五、将智能合约部署到-Geth-1-7-2-私有链/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/16/一、基本环境搭建/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/05/16/五、将智能合约部署到-Geth-1-7-2-私有链/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -330,8 +330,17 @@
       
 
       
-        <p>本文操作是centos环境下操作，其他linux版本／mac环境类似</p>
-<p>yum update -y &amp;&amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -y<br>wget <a href="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz" target="_blank" rel="noopener">https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz</a><br>tar zxvf go1.9.linux-amd64.tar.gz<br>mv go /usr/local/<br>echo “export GOROOT=/usr/local/go” &gt;&gt; /etc/profile<br>echo “export PATH=$PATH:/usr/local/go/bin” &gt;&gt; /etc/profile<br>source /etc/profile<br>git clone <a href="https://github.com/ethereum/go-ethereum.git" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum.git</a><br>cd  go-ethereum<br>git checkout v1.7.2<br>make geth<br>make all<br>geth version<br>echo “export PATH=$PATH:/root/go-ethereum/build/bin” &gt;&gt; /etc/profile<br>source /etc/profile<br>cd &amp;&amp; wget <a href="https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz" target="_blank" rel="noopener">https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz</a><br>tar -xzvf cmake-3.9.2.tar.gz<br>cd cmaker-3.9.2<br>./bootstrap &amp;&amp; make &amp;&amp; makeinstall<br>systemctl enable ntpd<br>systemctl start ntpd<br>防火墙和开放默认# 另外geth会用到8078和30303端口，放开防火墙端口 8078与30303</p>
+        <p>mkdir three<br>cd three<br>vi genesis.json<br>geth init ./genesis.json –datadir “./chain”<br>geth \<br>  –identity “mshk.top etherum” \<br>  –rpcaddr 0.0.0.0 \<br>  –rpc \<br>  –rpcport 8545 \<br>  –maxpeers 2 \<br>  –rpcapi “db,eth,net,web3,debug” \<br>  –networkid 100 \<br>  –datadir “./chain” \<br>  –nodiscover<br>另起终端<br>geth attach ipc://home/guoqiang/blockchain/three/chain/geth.ipc<br>web3.personal.newAccount(“123456”)<br>personal.unlockAccount(eth.accounts[0], “123456”, 15000)<br>miner.start(1)<br>acc0 = web3.eth.accounts[0]<br>web3.eth.getBalance(acc0)<br><a href="https://www.bejson.com,压缩转义" target="_blank" rel="noopener">https://www.bejson.com,压缩转义</a><br>mshk_abi=JSON.parse(‘[{\”constant\”:true,\”inputs\”:[{\”name\”:\”name\”,\”type\”:\”string\”}],\”name\”:\”print\”,\”outputs\”:[{\”name\”:\”\”,\”type\”:\”string\”}],\”payable\”:false,\”stateMutability\”:\”pure\”,\”type\”:\”function\”},{\”constant\”:true,\”inputs\”:[],\”name\”:\”say\”,\”outputs\”:[{\”name\”:\”\”,\”type\”:\”string\”}],\”payable\”:false,\”stateMutability\”:\”pure\”,\”type\”:\”function\”}]’)<br>mshk_bytecode=”0x6060604052341561000f57600080fd5b6102488061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806311114af114610051578063954ab4b214610127575b600080fd5b341561005c57600080fd5b6100ac600480803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506101b5565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100ec5780820151818401526020810190506100d1565b50505050905090810190601f1680156101195780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561013257600080fd5b61013a6101c5565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561017a57808201518184015260208101905061015f565b50505050905090810190601f1680156101a75780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6101bd610208565b819050919050565b6101cd610208565b6040805190810160405280600e81526020017f48656c6c6f206d73686b2e746f70000000000000000000000000000000000000815250905090565b6020604051908101604052806000815250905600a165627a7a7230582020589f9fd38871fc4097c360c32d1ec234f8f0c8b865bdc68937053b842dffd30029”<br>web3.eth.estimateGas({data: mshk_bytecode})<br>另终端部署合约cd two, truffle migrate –reset，记得解锁<br>mshk_Contract = web3.eth.contract(mshk_abi);<br>mshk_hello = mshk_Contract.new({from:acc0, data:mshk_bytecode, gas:300000}, function(e, contract){<br>    if(!e) {</p>
+<pre><code>  if(!contract.address) {
+    console.log(&quot;Contract transaction send: TransactionHash: &quot; + contract.transactionHash + &quot; waiting to be mined...&quot;);
+
+  } else {
+    console.log(&quot;Contract mined! Address: &quot; + contract.address);
+    console.log(contract);
+  }
+
+}
+</code></pre><p>});<br>mshk_hello.say()<br>mshk_hello.print(“Hello <a href="https://mshk.top&quot;" target="_blank" rel="noopener">https://mshk.top&quot;</a>)</p>
 
       
     </div>
@@ -385,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/04/区块链开发视频教程-提纲/" rel="next" title="区块链开发视频教程_提纲">
-                <i class="fa fa-chevron-left"></i> 区块链开发视频教程_提纲
+              <a href="/2018/05/16/四、Truffle-4-0-Geth-1-7-2-TestRPC在私有链上搭建智能合约/" rel="next" title="四、Truffle 4.0/Geth 1.7.2/TestRPC在私有链上搭建智能合约">
+                <i class="fa fa-chevron-left"></i> 四、Truffle 4.0/Geth 1.7.2/TestRPC在私有链上搭建智能合约
               </a>
             
           </div>
@@ -395,8 +404,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/16/二、truffle和testrpc搭建/" rel="prev" title="二、truffle和testrpc搭建">
-                二、truffle和testrpc搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/16/六、peer节点转账操作/" rel="prev" title="六、peer节点转账操作">
+                六、peer节点转账操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -660,9 +669,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/05/16/一、基本环境搭建/';
-          this.page.identifier = '2018/05/16/一、基本环境搭建/';
-          this.page.title = '一、基本环节搭建';
+          this.page.url = 'http://yoursite.com/2018/05/16/五、将智能合约部署到-Geth-1-7-2-私有链/';
+          this.page.identifier = '2018/05/16/五、将智能合约部署到-Geth-1-7-2-私有链/';
+          this.page.title = '五、将智能合约部署到 Geth 1.7.2 私有链';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';

@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="本文操作是centos环境下操作，其他linux版本／mac环境类似 yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gzta">
+<meta name="description" content="mkdir fourcd four在入门篇讲过，geth是一个以太坊客户端，现在利用get启动一个以太坊（开发者）网络节点。geth –datadir test_net –dev console 2&amp;gt;&amp;gt; test.log执行命名后，会进入geth控制台，这时光标停在一个向右的箭头处，像这样： 命令参数说明（更多命令详解可阅读Geth命令用法-参数详解篇）:–dev 启用开发者网络（模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一、基本环节搭建">
-<meta property="og:url" content="http://yoursite.com/2018/05/16/一、基本环境搭建/index.html">
+<meta property="og:title" content="七、智能合约开发环境搭建及Hello World合约">
+<meta property="og:url" content="http://yoursite.com/2018/05/16/七、智能合约开发环境搭建及Hello-World合约/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="本文操作是centos环境下操作，其他linux版本／mac环境类似 yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gzta">
+<meta property="og:description" content="mkdir fourcd four在入门篇讲过，geth是一个以太坊客户端，现在利用get启动一个以太坊（开发者）网络节点。geth –datadir test_net –dev console 2&amp;gt;&amp;gt; test.log执行命名后，会进入geth控制台，这时光标停在一个向右的箭头处，像这样： 命令参数说明（更多命令详解可阅读Geth命令用法-参数详解篇）:–dev 启用开发者网络（模式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-16T03:56:15.000Z">
+<meta property="og:updated_time" content="2018-05-16T04:46:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一、基本环节搭建">
-<meta name="twitter:description" content="本文操作是centos环境下操作，其他linux版本／mac环境类似 yum update -y &amp;amp;&amp;amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -ywget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gzta">
+<meta name="twitter:title" content="七、智能合约开发环境搭建及Hello World合约">
+<meta name="twitter:description" content="mkdir fourcd four在入门篇讲过，geth是一个以太坊客户端，现在利用get启动一个以太坊（开发者）网络节点。geth –datadir test_net –dev console 2&amp;gt;&amp;gt; test.log执行命名后，会进入geth控制台，这时光标停在一个向右的箭头处，像这样： 命令参数说明（更多命令详解可阅读Geth命令用法-参数详解篇）:–dev 启用开发者网络（模式">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/16/一、基本环境搭建/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/16/七、智能合约开发环境搭建及Hello-World合约/"/>
 
 
 
 
 
-  <title>一、基本环节搭建 | 余道技术</title>
+  <title>七、智能合约开发环境搭建及Hello World合约 | 余道技术</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/一、基本环境搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/七、智能合约开发环境搭建及Hello-World合约/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="caszhang">
@@ -269,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一、基本环节搭建</h1>
+          <h1 class="post-title" itemprop="name headline">七、智能合约开发环境搭建及Hello World合约</h1>
         
 
         <div class="post-meta">
@@ -281,7 +281,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T11:47:58+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T12:45:36+08:00">
                 2018-05-16
               </time>
             
@@ -300,9 +300,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/16/一、基本环境搭建/#comments" itemprop="discussionUrl">
+                <a href="/2018/05/16/七、智能合约开发环境搭建及Hello-World合约/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/16/一、基本环境搭建/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/05/16/七、智能合约开发环境搭建及Hello-World合约/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -330,8 +330,31 @@
       
 
       
-        <p>本文操作是centos环境下操作，其他linux版本／mac环境类似</p>
-<p>yum update -y &amp;&amp; yum install git wget bzip2 vim gcc-c++ ntp epel-release nodejs cmake -y<br>wget <a href="https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz" target="_blank" rel="noopener">https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz</a><br>tar zxvf go1.9.linux-amd64.tar.gz<br>mv go /usr/local/<br>echo “export GOROOT=/usr/local/go” &gt;&gt; /etc/profile<br>echo “export PATH=$PATH:/usr/local/go/bin” &gt;&gt; /etc/profile<br>source /etc/profile<br>git clone <a href="https://github.com/ethereum/go-ethereum.git" target="_blank" rel="noopener">https://github.com/ethereum/go-ethereum.git</a><br>cd  go-ethereum<br>git checkout v1.7.2<br>make geth<br>make all<br>geth version<br>echo “export PATH=$PATH:/root/go-ethereum/build/bin” &gt;&gt; /etc/profile<br>source /etc/profile<br>cd &amp;&amp; wget <a href="https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz" target="_blank" rel="noopener">https://cmake.org/files/v3.9/cmake-3.9.2.tar.gz</a><br>tar -xzvf cmake-3.9.2.tar.gz<br>cd cmaker-3.9.2<br>./bootstrap &amp;&amp; make &amp;&amp; makeinstall<br>systemctl enable ntpd<br>systemctl start ntpd<br>防火墙和开放默认# 另外geth会用到8078和30303端口，放开防火墙端口 8078与30303</p>
+        <p>mkdir four<br>cd four<br>在入门篇讲过，geth是一个以太坊客户端，现在利用get启动一个以太坊（开发者）网络节点。<br>geth –datadir test_net –dev console 2&gt;&gt; test.log<br>执行命名后，会进入geth控制台，这时光标停在一个向右的箭头处，像这样：</p>
+<p>命令参数说明（更多命令详解可阅读Geth命令用法-参数详解篇）:<br>–dev 启用开发者网络（模式），开发者网络会使用POA共识，默认预分配一个开发者账户并且会自动开启挖矿。<br>–datadir 后面的参数是区块数据及秘钥存放目录。<br>第一次输入命令后，它会放在当前目录下新建一个testNet目录来存放数据。<br>console 进入控制台<br>2&gt;&gt; test.log 表示把控制台日志输出到test.log文件</p>
+<p>为了更好的理解，建议新开一个命令行终端，实时显示日志：<br>tailf test.log</p>
+<p>准备账户<br>部署智能合约需要一个外部账户，我们先来看看分配的开发者账户，在控制台使用以下命令查看账户：<br>eth.accounts<br>也可以使用personal.listAccounts查看账户，<br>再来看一下账户里的余额，使用一下命令：<br>eth.getBalance(eth.accounts[0])<br>创建账户<br>使用以下命令创建账户：<br>personal.newAccount(“123456”)<br>123456为新账户的密码，回车后，返回一个新账户。<br>这时我们查看账户列表：<br>eth.accounts<br>eth.getBalance(eth.accounts[0])<br>回车后，返回的是0，新账户是0。<br>挖矿来挖余额<br>miner.start()<br>稍等几分钟<br>miner.stop()<br>eth.getBalance(eth.accounts[0])</p>
+<p>解锁账户<br>在部署合约前需要先解锁账户（就像银行转账要输入密码一样），使用以下命令：<br>personal.unlockAccount(eth.accounts[0],”123456”);<br>“TinyXiong” 是之前创建账户时的密码<br>解锁成功后，账户就准备完毕啦，接下来就是编写合约代码</p>
+<p>编写合约代码<br>现在我们来开始编写第一个智能合约代码，solidity代码如下：</p>
+<p>pragma solidity ^0.4.18;<br>contract hello {<br>    string greeting;</p>
+<pre><code>function hello(string _greeting) public {
+    greeting = _greeting;
+}
+
+function say() constant public returns (string) {
+    return greeting;
+}
+</code></pre><p>}</p>
+<p>简单解释下，我们定义了一个名为hello的合约，在合约初始化时保存了一个字符串（我们会传入hello world），每次调用say返回字符串。<br>把这段代码写(拷贝)到Browser-Solidity，如果没有错误，点击Details获取部署代码，如：</p>
+<p>在弹出的对话框中找到WEB3DEPLOY部分，点拷贝，粘贴到编辑器后，修改初始化字符串为hello world。</p>
+<p>部署合约<br>Browser-Solidity生成的代码，拷贝到编辑器里修改后的代码如下：</p>
+<p>var _greeting = “HELLO”;<br>var helloContract = web3.eth.contract([{“constant”:true,”inputs”:[],”name”:”say”,”outputs”:[{“name”:””,”type”:”string”}],”payable”:false,”stateMutability”:”view”,”type”:”function”},{“inputs”:[{“name”:”_greeting”,”type”:”string”}],”payable”:false,”stateMutability”:”nonpayable”,”type”:”constructor”}]);<br>var hello = helloContract.new(<br>   _greeting,<br>   {<br>     from: web3.eth.accounts[0],<br>     data: ‘0x6060604052341561000f57600080fd5b6040516102b83803806102b8833981016040528080518201919050508060009080519060200190610041929190610048565b50506100ed565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061008957805160ff19168380011785556100b7565b828001600101855582156100b7579182015b828111156100b657825182559160200191906001019061009b565b5b5090506100c491906100c8565b5090565b6100ea91905b808211156100e65760008160009055506001016100ce565b5090565b90565b6101bc806100fc6000396000f300606060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063954ab4b214610046575b600080fd5b341561005157600080fd5b6100596100d4565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561009957808201518184015260208101905061007e565b50505050905090810190601f1680156100c65780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100dc61017c565b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101725780601f1061014757610100808354040283529160200191610172565b820191906000526020600020905b81548152906001019060200180831161015557829003601f168201915b5050505050905090565b6020604051908101604052806000815250905600a165627a7a72305820e7bee58cd04d8ca354929dae8d532de4844d3f4f962ac3f3d29319457dc40ab30029’,<br>     gas: ‘4700000’<br>   }, function (e, contract){<br>    console.log(e, contract);<br>    if (typeof contract.address !== ‘undefined’) {<br>         console.log(‘Contract mined! address: ‘ + contract.address + ‘ transactionHash: ‘ + contract.transactionHash);<br>    }<br>})</p>
+<p>第1行：修改字符串为Hello World<br>第2行：修改合约变量名<br>第3行：修改合约实例变量名，之后可以直接用实例调用函数。<br>第6行：修改部署账户为新账户索引，即使用新账户来部署合约。<br>第8行：准备付的gas费用，IDE已经帮我们预估好了。<br>第9行：设置部署回调函数。<br>拷贝回geth控制台里，回车后， miner.start()，看到输出如：<br>Contract mined! address: 0x91c4ae91622dcbebfc4c8785f68f33c6a0450a4a transactionHash: 0x442fae8d5b4b0b49383b094edddb8a5695dfd05df69141876f03093639f4309f</p>
+<p>现在我们查看下新账户的余额：</p>
+<blockquote>
+<p>eth.getBalance(eth.accounts[0])<br>是不是比之前转账的余额少呀！<br>运行合约<br>hello.say()<br>“Hello World”</p>
+</blockquote>
+<p>exit</p>
 
       
     </div>
@@ -385,8 +408,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/04/区块链开发视频教程-提纲/" rel="next" title="区块链开发视频教程_提纲">
-                <i class="fa fa-chevron-left"></i> 区块链开发视频教程_提纲
+              <a href="/2018/05/16/六、peer节点转账操作/" rel="next" title="六、peer节点转账操作">
+                <i class="fa fa-chevron-left"></i> 六、peer节点转账操作
               </a>
             
           </div>
@@ -395,8 +418,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/16/二、truffle和testrpc搭建/" rel="prev" title="二、truffle和testrpc搭建">
-                二、truffle和testrpc搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/16/八、开发和部署dapp/" rel="prev" title="八、开发和部署dapp">
+                八、开发和部署dapp <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -660,9 +683,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/05/16/一、基本环境搭建/';
-          this.page.identifier = '2018/05/16/一、基本环境搭建/';
-          this.page.title = '一、基本环节搭建';
+          this.page.url = 'http://yoursite.com/2018/05/16/七、智能合约开发环境搭建及Hello-World合约/';
+          this.page.identifier = '2018/05/16/七、智能合约开发环境搭建及Hello-World合约/';
+          this.page.title = '七、智能合约开发环境搭建及Hello World合约';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
