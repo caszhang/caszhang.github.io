@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="mkdir onecd onegeth init ./genesis.json –datadir “./chain”geth \  –datadir “./chain” \  –nodiscover \  console 2&amp;gt;&amp;gt;eth_output.logweb3.eth.accountsweb3.personal.newAccount(“123456”)web3.personal.n">
+<meta name="description" content="mkdir onecd onegeth init ./genesis.json –datadir “./chain”geth \  –datadir “./chain” \  –nodiscover \  console 2&amp;gt;&amp;gt;eth_output.logweb3.eth.accounts">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三、私有链基本操作">
 <meta property="og:url" content="http://yoursite.com/2018/05/16/三、私有链基本操作/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="mkdir onecd onegeth init ./genesis.json –datadir “./chain”geth \  –datadir “./chain” \  –nodiscover \  console 2&amp;gt;&amp;gt;eth_output.logweb3.eth.accountsweb3.personal.newAccount(“123456”)web3.personal.n">
+<meta property="og:description" content="mkdir onecd onegeth init ./genesis.json –datadir “./chain”geth \  –datadir “./chain” \  –nodiscover \  console 2&amp;gt;&amp;gt;eth_output.logweb3.eth.accounts">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-16T04:33:33.000Z">
+<meta property="og:updated_time" content="2018-05-16T05:36:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三、私有链基本操作">
-<meta name="twitter:description" content="mkdir onecd onegeth init ./genesis.json –datadir “./chain”geth \  –datadir “./chain” \  –nodiscover \  console 2&amp;gt;&amp;gt;eth_output.logweb3.eth.accountsweb3.personal.newAccount(“123456”)web3.personal.n">
+<meta name="twitter:description" content="mkdir onecd onegeth init ./genesis.json –datadir “./chain”geth \  –datadir “./chain” \  –nodiscover \  console 2&amp;gt;&amp;gt;eth_output.logweb3.eth.accounts">
 
 
 
@@ -330,7 +330,7 @@
       
 
       
-        <p>mkdir one<br>cd one<br>geth init ./genesis.json –datadir “./chain”<br>geth \<br>  –datadir “./chain” \<br>  –nodiscover \<br>  console 2&gt;&gt;eth_output.log<br>web3.eth.accounts<br>web3.personal.newAccount(“123456”)<br>web3.personal.newAccount()<br>web3.eth.accounts<br>miner.start(1)<br>miner.stop()<br>web3.eth.getBalance(web3.eth.accounts[0])<br>web3.eth.getBalance(web3.eth.accounts[1])<br>web3.fromWei(web3.eth.getBalance(web3.eth.accounts[0])<br>function checkAllBalances() {<br>     var totalBal = 0;<br>     for (var acctNum in eth.accounts) {<br>         var acct = eth.accounts[acctNum];<br>         var acctBal = web3.fromWei(eth.getBalance(acct), “ether”);<br>         totalBal += parseFloat(acctBal);<br>         console.log(“  eth.accounts[“ + acctNum + “]: \t” + acct + “ \tbalance: “ + acctBal + “ ether”);<br>     }<br>     console.log(“  Total balance: “ + totalBal + “ ether”);<br> };<br>checkAllBalances()<br>acc0 = web3.eth.accounts[0]<br> acc1 = web3.eth.accounts[1]<br>web3.personal.unlockAccount(acc0,”123456”)<br>web3.eth.sendTransaction({from:acc0,to:acc1,value:web3.toWei(3,”ether”)})<br>checkAllBalances()<br>miner.start()<br>checkAllBalances()<br>web3.eth.blockNumber</p>
+        <p>mkdir one<br>cd one<br>geth init ./genesis.json –datadir “./chain”<br>geth \<br>  –datadir “./chain” \<br>  –nodiscover \<br>  console 2&gt;&gt;eth_output.log<br>web3.eth.accounts<br><a id="more"></a><br>web3.personal.newAccount(“123456”)<br>web3.personal.newAccount()<br>web3.eth.accounts<br>miner.start(1)<br>miner.stop()<br>web3.eth.getBalance(web3.eth.accounts[0])<br>web3.eth.getBalance(web3.eth.accounts[1])<br>web3.fromWei(web3.eth.getBalance(web3.eth.accounts[0])<br>function checkAllBalances() {<br>     var totalBal = 0;<br>     for (var acctNum in eth.accounts) {<br>         var acct = eth.accounts[acctNum];<br>         var acctBal = web3.fromWei(eth.getBalance(acct), “ether”);<br>         totalBal += parseFloat(acctBal);<br>         console.log(“  eth.accounts[“ + acctNum + “]: \t” + acct + “ \tbalance: “ + acctBal + “ ether”);<br>     }<br>     console.log(“  Total balance: “ + totalBal + “ ether”);<br> };<br>checkAllBalances()<br>acc0 = web3.eth.accounts[0]<br> acc1 = web3.eth.accounts[1]<br>web3.personal.unlockAccount(acc0,”123456”)<br>web3.eth.sendTransaction({from:acc0,to:acc1,value:web3.toWei(3,”ether”)})<br>checkAllBalances()<br>miner.start()<br>checkAllBalances()<br>web3.eth.blockNumber</p>
 
       
     </div>
