@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="mkdir fourcd four在入门篇讲过，geth是一个以太坊客户端，现在利用get启动一个以太坊（开发者）网络节点。geth –datadir test_net –dev console 2&amp;gt;&amp;gt; test.log执行命名后，会进入geth控制台，这时光标停在一个向右的箭头处，像这样：">
+<meta name="description" content="说明这一节是对前面一些内容的整合应用，相比之前的篇幅稍长，不过，前面内容熟悉，学习操作和理解也比较容易">
 <meta property="og:type" content="article">
 <meta property="og:title" content="七、智能合约开发环境搭建及Hello World合约">
 <meta property="og:url" content="http://yoursite.com/2018/05/16/七、智能合约开发环境搭建及Hello-World合约/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="mkdir fourcd four在入门篇讲过，geth是一个以太坊客户端，现在利用get启动一个以太坊（开发者）网络节点。geth –datadir test_net –dev console 2&amp;gt;&amp;gt; test.log执行命名后，会进入geth控制台，这时光标停在一个向右的箭头处，像这样：">
+<meta property="og:description" content="说明这一节是对前面一些内容的整合应用，相比之前的篇幅稍长，不过，前面内容熟悉，学习操作和理解也比较容易">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-16T05:36:57.000Z">
+<meta property="og:updated_time" content="2018-05-23T05:47:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="七、智能合约开发环境搭建及Hello World合约">
-<meta name="twitter:description" content="mkdir fourcd four在入门篇讲过，geth是一个以太坊客户端，现在利用get启动一个以太坊（开发者）网络节点。geth –datadir test_net –dev console 2&amp;gt;&amp;gt; test.log执行命名后，会进入geth控制台，这时光标停在一个向右的箭头处，像这样：">
+<meta name="twitter:description" content="说明这一节是对前面一些内容的整合应用，相比之前的篇幅稍长，不过，前面内容熟悉，学习操作和理解也比较容易">
 
 
 
@@ -330,7 +330,8 @@
       
 
       
-        <p>mkdir four<br>cd four<br>在入门篇讲过，geth是一个以太坊客户端，现在利用get启动一个以太坊（开发者）网络节点。<br>geth –datadir test_net –dev console 2&gt;&gt; test.log<br>执行命名后，会进入geth控制台，这时光标停在一个向右的箭头处，像这样：<br><a id="more"></a></p>
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>这一节是对前面一些内容的整合应用，相比之前的篇幅稍长，不过，前面内容熟悉，学习操作和理解也比较容易<br><a id="more"></a></p>
+<p>mkdir four<br>cd four<br>在入门篇讲过，geth是一个以太坊客户端，现在利用get启动一个以太坊（开发者）网络节点。<br>geth –datadir test_net –dev console 2&gt;&gt; test.log<br>执行命名后，会进入geth控制台，这时光标停在一个向右的箭头处，像这样：</p>
 <p>命令参数说明（更多命令详解可阅读Geth命令用法-参数详解篇）:<br>–dev 启用开发者网络（模式），开发者网络会使用POA共识，默认预分配一个开发者账户并且会自动开启挖矿。<br>–datadir 后面的参数是区块数据及秘钥存放目录。<br>第一次输入命令后，它会放在当前目录下新建一个testNet目录来存放数据。<br>console 进入控制台<br>2&gt;&gt; test.log 表示把控制台日志输出到test.log文件</p>
 <p>为了更好的理解，建议新开一个命令行终端，实时显示日志：<br>tailf test.log</p>
 <p>准备账户<br>部署智能合约需要一个外部账户，我们先来看看分配的开发者账户，在控制台使用以下命令查看账户：<br>eth.accounts<br>也可以使用personal.listAccounts查看账户，<br>再来看一下账户里的余额，使用一下命令：<br>eth.getBalance(eth.accounts[0])<br>创建账户<br>使用以下命令创建账户：<br>personal.newAccount(“123456”)<br>123456为新账户的密码，回车后，返回一个新账户。<br>这时我们查看账户列表：<br>eth.accounts<br>eth.getBalance(eth.accounts[0])<br>回车后，返回的是0，新账户是0。<br>挖矿来挖余额<br>miner.start()<br>稍等几分钟<br>miner.stop()<br>eth.getBalance(eth.accounts[0])</p>
@@ -482,8 +483,17 @@ function say() constant public returns (string) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -525,6 +535,22 @@ function say() constant public returns (string) {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
