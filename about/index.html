@@ -567,6 +567,43 @@
 
 
 
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '80176975@qq.com# MUST HAVE, Your Github ID',
+            repo: 'yudao# MUST HAVE, The repo you use to store Gitment comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'e14a5773d0439c6d0f729d43c369ad4fcc3ee9d6# EITHER this or proxy_gateway, Github access secret token for the Gitment',
+            
+                client_id: 'a89d8aa0527fa7ae3fa7# MUST HAVE, Github client id for the Gitment'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
 
 
 
