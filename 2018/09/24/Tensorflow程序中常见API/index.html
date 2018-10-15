@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="import tensorflow as tfimport numpy as np">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T10:16:36.081Z">
+<meta property="og:updated_time" content="2018-10-15T10:22:08.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow程序中常见API">
 <meta name="twitter:description" content="import tensorflow as tfimport numpy as np">
@@ -356,7 +356,7 @@
       
 
       
-        <p>import tensorflow as tf<br>import numpy as np<br><a id="more"></a><br><code>`</code></p>
+        <p>import tensorflow as tf<br>import numpy as np<br><a id="more"></a></p>
 <p>#生成一个形状为100的一维数组<br>np.random.rand(100)</p>
 <p>#生成一个形状为100的一维数组，数据类型转换为float32<br>np.random.rand(100).astype(np.float32)</p>
 <p>#均匀分布随机数组成的向量（1,），每个元素的取值范围-1.0到1.0，<br>tf.random_uniform([1], -1.0, 1.0)</p>
@@ -371,7 +371,7 @@
 <p>#通过会话运行动作<br>sess.run(init)</p>
 <p>#常量向量<br>matrix1 = tf.constant([[3, 3]])<br>matrix2 = tf.constant([[1]<br>                     , [2]])</p>
 <p>#向量相乘，点积<br>product = tf.matmul(matrix1, matrix2) # matrix multiply,same as np.dot(matrix1, matrix2)</p>
-<p>np.arange()函数分为一个参数，两个参数，三个参数三种情况<br>1）一个参数时，参数值为终点，起点取默认值0，步长取默认值1。<br>2）两个参数时，第一个参数为起点，第二个参数为终点，步长取默认值1。<br>3）三个参数时，第一个参数为起点，第二个参数为终点，第三个参数为步长。其中步长支持小数。<br>x = np.arange(-200, -100, 1)<br>y = np.arange(-5, 5, 0.1)<br>np.zeros(shape, dtype=float, order=’C’)<br>np.zeros(5, 5)</p>
+<p>np.arange()函数分为一个参数，两个参数，三个参数三种情况<br>1）一个参数时，参数值为终点，起点取默认值0，步长取默认值1。<br>2）两个参数时，第一个参数为起点，第二个参数为终点，步长取默认值1。<br>3）三个参数时，第一个参数为起点，第二个参数为终点，第三个参数为步长。其中步长支持小数。<br>x = np.arange(-200, -100, 1)<br>y = np.arange(-5, 5, 0.1)<br>np.zeros(shape, dtype=float, order=’C’)<br>np.zeros((5, 5))</p>
 <p>语法：X,Y = numpy.meshgrid(x, y)<br>输入的x，y，就是网格点的横纵坐标列向量（非矩阵）<br>输出的X，Y，就是坐标矩阵。<br>x = np.arange(1,5,1)<br>y = np.arange(6,10, 1)<br>X, Y = np.meshgrid(x, y)<br>X<br>array([[1, 2, 3, 4],<br>       [1, 2, 3, 4],<br>       [1, 2, 3, 4],<br>       [1, 2, 3, 4]])<br>Y<br>array([[6, 6, 6, 6],<br>       [7, 7, 7, 7],<br>       [8, 8, 8, 8],<br>       [9, 9, 9, 9]])</p>
 
       
