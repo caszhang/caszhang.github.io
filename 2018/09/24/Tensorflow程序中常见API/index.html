@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="import tensorflow as tfimport numpy as np">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T10:22:08.304Z">
+<meta property="og:updated_time" content="2019-03-01T08:01:22.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow程序中常见API">
 <meta name="twitter:description" content="import tensorflow as tfimport numpy as np">
@@ -373,6 +373,9 @@
 <p>#向量相乘，点积<br>product = tf.matmul(matrix1, matrix2) # matrix multiply,same as np.dot(matrix1, matrix2)</p>
 <p>np.arange()函数分为一个参数，两个参数，三个参数三种情况<br>1）一个参数时，参数值为终点，起点取默认值0，步长取默认值1。<br>2）两个参数时，第一个参数为起点，第二个参数为终点，步长取默认值1。<br>3）三个参数时，第一个参数为起点，第二个参数为终点，第三个参数为步长。其中步长支持小数。<br>x = np.arange(-200, -100, 1)<br>y = np.arange(-5, 5, 0.1)<br>np.zeros(shape, dtype=float, order=’C’)<br>np.zeros((5, 5))</p>
 <p>语法：X,Y = numpy.meshgrid(x, y)<br>输入的x，y，就是网格点的横纵坐标列向量（非矩阵）<br>输出的X，Y，就是坐标矩阵。<br>x = np.arange(1,5,1)<br>y = np.arange(6,10, 1)<br>X, Y = np.meshgrid(x, y)<br>X<br>array([[1, 2, 3, 4],<br>       [1, 2, 3, 4],<br>       [1, 2, 3, 4],<br>       [1, 2, 3, 4]])<br>Y<br>array([[6, 6, 6, 6],<br>       [7, 7, 7, 7],<br>       [8, 8, 8, 8],<br>       [9, 9, 9, 9]])</p>
+<p>#tf.InteractiveSession()默认自己就是用户要操作的会话（session），而tf.Session()没有这个默认<br>sess = tf.InteractiveSession()</p>
+<p>#应该理解为压缩求和，用于降维, axis=0按列求和压缩行，axis=1按行求和压缩列<br>t1 = [[1, 2, 3], [4, 5, 6]]<br>result = tf.reduce_sum(t1, axis=1)</p>
+<p>#拼接张量,axis=0     代表在第0个维度拼接,axis=1     代表在第1个维度拼接<br>con0 = tf.concat(t1, t2, axis=0)</p>
 
       
     </div>
