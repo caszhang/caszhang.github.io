@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="说明peer节点意思是同一genesis.json／同一链上的不同账户">
+<meta name="description" content="常用函数的导数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="六、peer节点转账操作">
-<meta property="og:url" content="http://yoursite.com/2018/05/16/六、peer节点转账操作/index.html">
+<meta property="og:title" content="机器学习中的数学-高等数学-常见导数">
+<meta property="og:url" content="http://yoursite.com/2019/07/09/机器学习中的数学-高等数学-常见导数/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="说明peer节点意思是同一genesis.json／同一链上的不同账户">
+<meta property="og:description" content="常用函数的导数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-25T10:35:32.000Z">
+<meta property="og:updated_time" content="2019-07-09T07:57:18.438Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六、peer节点转账操作">
-<meta name="twitter:description" content="说明peer节点意思是同一genesis.json／同一链上的不同账户">
+<meta name="twitter:title" content="机器学习中的数学-高等数学-常见导数">
+<meta name="twitter:description" content="常用函数的导数">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/16/六、peer节点转账操作/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/07/09/机器学习中的数学-高等数学-常见导数/"/>
 
 
 
 
 
-  <title>六、peer节点转账操作 | 余道技术</title>
+  <title>机器学习中的数学-高等数学-常见导数 | 余道技术</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/六、peer节点转账操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/机器学习中的数学-高等数学-常见导数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="caszhang">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">六、peer节点转账操作</h1>
+          <h1 class="post-title" itemprop="name headline">机器学习中的数学-高等数学-常见导数</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T12:41:00+08:00">
-                2018-05-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T14:51:00+08:00">
+                2019-07-09
               </time>
             
 
@@ -314,19 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/区块链/" itemprop="url" rel="index">
-                    <span itemprop="name">区块链</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/区块链/入门教程/" itemprop="url" rel="index">
-                    <span itemprop="name">入门教程</span>
+                  <a href="/categories/深度学习机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习机器学习</span>
                   </a>
                 </span>
 
@@ -367,12 +356,22 @@
       
 
       
-        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>peer节点意思是同一genesis.json／同一链上的不同账户<br><a id="more"></a></p>
-<h3 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h3><p>在两个终端窗口分别操作，下面的账号的信息换成你实际执行时的accout和node信息</p>
-<h4 id="节点1"><a href="#节点1" class="headerlink" title="节点1"></a>节点1</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir ./data/00 init genesis.json</span><br><span class="line">geth --datadir ./data/00 --networkid 314590 --ipcdisable --port 61910 --rpcport 8200 console</span><br><span class="line">personal.listAccounts</span><br><span class="line">personal.newAccount("123456")</span><br><span class="line">personal.listWallets</span><br><span class="line">admin.nodeInfo.enode</span><br></pre></td></tr></table></figure>
-<p>查看ip<br>ifconfig|grep netmask|awk ‘{print $2}’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">net.peerCount</span><br><span class="line">admin.peers</span><br><span class="line">eth.getBalance(eth.coinbase)</span><br><span class="line">eth.blockNumber</span><br><span class="line">miner.start()</span><br><span class="line">miner.stop()</span><br><span class="line">personal.unlockAccount(&quot;0x2d0a5dbffe1219e80f7830a8bb8d288c61f5a89b&quot;)</span><br><span class="line">eth.blockNumber</span><br><span class="line">eth.getBalance(eth.coinbase)</span><br><span class="line">eth.sendTransaction(&#123;from: &quot;0x2d0a5dbffe1219e80f7830a8bb8d288c61f5a89b&quot;, to: &quot;0xa1defe64a7253df824b91761b579bc6a49339abb&quot;, value: web3.toWei(1, &quot;ether&quot;)&#125;)</span><br><span class="line">miner.start()</span><br></pre></td></tr></table></figure></p>
-<p>稍等10秒钟，让挖点矿<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">miner.stop()</span><br><span class="line">eth.getBalance(eth.coinbase)</span><br><span class="line">eth.blockNumber</span><br></pre></td></tr></table></figure></p>
-<h4 id="节点2"><a href="#节点2" class="headerlink" title="节点2"></a>节点2</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir ./data/01 init ./genesis.json</span><br><span class="line">geth --datadir ./data/01 --networkid 314590 --ipcdisable --port 61911 --rpcport 8101 console</span><br><span class="line"></span><br><span class="line">personal.listAccounts</span><br><span class="line">personal.newAccount(&quot;123456&quot;)</span><br><span class="line">personal.listWallets</span><br><span class="line"></span><br><span class="line">net.peerCount</span><br><span class="line">admin.peers</span><br><span class="line"></span><br><span class="line">admin.nodeInfo</span><br><span class="line">admin.addPeer(&quot;enode://5b853e0c296c5a8eedbf41b2d408d231f5a860977b8efa1752f4a2daabdcba164da154684d3d365dfedd6ad27d856ab430e3f42dec58b285b5138349bcaf340c@[::]:61910&quot;)</span><br><span class="line"></span><br><span class="line">eth.getBalance(eth.coinbase)</span><br><span class="line">eth.blockNumber</span><br></pre></td></tr></table></figure>
+        <p>常用函数的导数<br><a id="more"></a><br>$C’ = 0$</p>
+<p>$(x^n)’ = nx^{n-1}$</p>
+<p>$(sinx)’ = cosx$</p>
+<p>$(cosx)’ = -sinx$</p>
+<p>$(tanx)’ = sec^2x$</p>
+<p>$(cotx)’ = -csc^2x$</p>
+<p>$(secx)’ = secx.tanx$</p>
+<p>$(cscx)’ = -cscx.cotx$</p>
+<p>$(a^x)’ = a^xlna$</p>
+<p>$(e^x)’ = e^x$</p>
+<p>$(log_{a}x)’ = \frac{1}{x}log_{a}e$</p>
+<p>$(lnx)’ = \frac{1}{x}$</p>
+<p>$(u + v)’ = u’ + v’$</p>
+<p>$(uv)’ = u’v + uv’$</p>
+<p>$(\frac{u}{v})’ = \frac{u’v - uv’}{v^2}$</p>
+<p>$(u(v))’ = u’(v).v’$</p>
 
       
     </div>
@@ -426,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/16/五、将智能合约部署到-Geth-1-7-2-私有链/" rel="next" title="五、将智能合约部署到 Geth 1.7.2 私有链">
-                <i class="fa fa-chevron-left"></i> 五、将智能合约部署到 Geth 1.7.2 私有链
+              <a href="/2019/06/04/一些有用的原则和原理/" rel="next" title="一些有用的原则和原理">
+                <i class="fa fa-chevron-left"></i> 一些有用的原则和原理
               </a>
             
           </div>
@@ -436,8 +435,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/16/七、智能合约开发环境搭建及Hello-World合约/" rel="prev" title="七、智能合约开发环境搭建及Hello World合约">
-                七、智能合约开发环境搭建及Hello World合约 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/09/机器学习中的数学-高等数学-定理和推论/" rel="prev" title="机器学习中的数学-高等数学-定理和推论">
+                机器学习中的数学-高等数学-定理和推论 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -492,17 +491,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -563,22 +553,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作流程"><span class="nav-number">2.</span> <span class="nav-text">操作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#节点1"><span class="nav-number">2.1.</span> <span class="nav-text">节点1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节点2"><span class="nav-number">2.2.</span> <span class="nav-text">节点2</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -805,6 +779,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
