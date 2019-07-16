@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="0-1分布已知随机变量X的取值只能为0或1，取值为1的概率为p，取值为0的概率为1-p，则期望和方差有，$E(X)=1.p+0.(1-p)=p,D(X)=E(X^2)-[E(X)]^2=1^2.p+0^2.(1-p)-p^2=p-p^2=pq$">
+<meta name="description" content="0-1分布已知随机变量X的取值只能为0或1，取值为1的概率为p，取值为0的概率为1-p，则期望和方差有，$E(X)=1.p+0.(1-p)=p,D(X)=E(X^2)-[E(X)]^2=1^2.p+0^2.(1-p)-p^2=p-p^2=pq$ 二项分布(Bernoulli Distribution，伯努利分布)二项分布就是重复n次独立的伯努利试验。在每次试验中只有两种可能的结果，而且两种结果发生">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习中的数学-概率论与数理统计-概率分布">
 <meta property="og:url" content="http://yoursite.com/2019/07/10/机器学习中的数学-概率论与数理统计-概率分布/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="0-1分布已知随机变量X的取值只能为0或1，取值为1的概率为p，取值为0的概率为1-p，则期望和方差有，$E(X)=1.p+0.(1-p)=p,D(X)=E(X^2)-[E(X)]^2=1^2.p+0^2.(1-p)-p^2=p-p^2=pq$">
+<meta property="og:description" content="0-1分布已知随机变量X的取值只能为0或1，取值为1的概率为p，取值为0的概率为1-p，则期望和方差有，$E(X)=1.p+0.(1-p)=p,D(X)=E(X^2)-[E(X)]^2=1^2.p+0^2.(1-p)-p^2=p-p^2=pq$ 二项分布(Bernoulli Distribution，伯努利分布)二项分布就是重复n次独立的伯努利试验。在每次试验中只有两种可能的结果，而且两种结果发生">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-11T12:45:23.499Z">
+<meta property="og:updated_time" content="2019-07-16T08:03:52.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-概率论与数理统计-概率分布">
-<meta name="twitter:description" content="0-1分布已知随机变量X的取值只能为0或1，取值为1的概率为p，取值为0的概率为1-p，则期望和方差有，$E(X)=1.p+0.(1-p)=p,D(X)=E(X^2)-[E(X)]^2=1^2.p+0^2.(1-p)-p^2=p-p^2=pq$">
+<meta name="twitter:description" content="0-1分布已知随机变量X的取值只能为0或1，取值为1的概率为p，取值为0的概率为1-p，则期望和方差有，$E(X)=1.p+0.(1-p)=p,D(X)=E(X^2)-[E(X)]^2=1^2.p+0^2.(1-p)-p^2=p-p^2=pq$ 二项分布(Bernoulli Distribution，伯努利分布)二项分布就是重复n次独立的伯努利试验。在每次试验中只有两种可能的结果，而且两种结果发生">
 
 
 
@@ -356,7 +356,9 @@
       
 
       
-        <p>0-1分布<br>已知随机变量X的取值只能为0或1，取值为1的概率为p，取值为0的概率为1-p，则期望和方差有，<br>$E(X)=1.p+0.(1-p)<br>=p,<br>D(X)=E(X^2)-[E(X)]^2<br>=1^2.p+0^2.(1-p)-p^2<br>=p-p^2=pq<br>$<br><a id="more"></a></p>
+        <h3 id="0-1分布"><a href="#0-1分布" class="headerlink" title="0-1分布"></a>0-1分布</h3><p>已知随机变量X的取值只能为0或1，取值为1的概率为p，取值为0的概率为1-p，则期望和方差有，<br>$E(X)=1.p+0.(1-p)<br>=p,<br>D(X)=E(X^2)-[E(X)]^2<br>=1^2.p+0^2.(1-p)-p^2<br>=p-p^2=pq<br>$</p>
+<h3 id="二项分布-Bernoulli-Distribution，伯努利分布"><a href="#二项分布-Bernoulli-Distribution，伯努利分布" class="headerlink" title="二项分布(Bernoulli Distribution，伯努利分布)"></a>二项分布(Bernoulli Distribution，伯努利分布)</h3><p>二项分布就是重复n次独立的伯努利试验。在每次试验中只有两种可能的结果，而且两种结果发生与否互相对立，并且相互独立，与其它各次试验结果无关，事件发生与否的概率在每一次独立试验中都保持不变，则这一系列试验总称为n重伯努利实验，当试验次数为1时，二项分布服从0-1分布。记$\varepsilon~B(n, p)$，其中n为实验次数，p为单次事件发生的概率</p>
+<p>推论：由二项式分布的定义知，随机变量X是n重伯努利实验中事件A发生的次数，且在每次试验中A发生的概率为p。因此，可以将二项式分布分解成n个相互独立且以p为参数的（0-1）分布随机变量之和.即：<br>设$X_i$为<br><a id="more"></a></p>
 
       
     </div>
@@ -472,8 +474,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -534,6 +545,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1分布"><span class="nav-number">1.</span> <span class="nav-text">0-1分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二项分布-Bernoulli-Distribution，伯努利分布"><span class="nav-number">2.</span> <span class="nav-text">二项分布(Bernoulli Distribution，伯努利分布)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
