@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="排列组合公式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-09T11:46:37.654Z">
+<meta property="og:updated_time" content="2019-07-16T08:27:24.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-概率论与数理统计-排列组合">
 <meta name="twitter:description" content="排列组合公式">
@@ -358,6 +358,7 @@
       
         <h3 id="排列组合公式"><a href="#排列组合公式" class="headerlink" title="排列组合公式"></a>排列组合公式</h3><a id="more"></a>
 <p>$A_{n}^{m}=n(n-1)(n-2)(n-3)…(n-m+1)=\frac{n!}{(n-m)!}$<br>$C_{n}^{m}=\frac{n(n-1)(n-2)(n-3)…(n-m+1)}{m!}=\frac{n!}{m!(n-m)!}$<br>$A_{n}^{m}=C_{n}^{m}A_m^m$<br>$C_n^m=C_n^{n-m}$<br>$C_n^0=C_n^n=A_n^0=1$</p>
+<p>二项式定理<br>$(a+b)^n=\sum_{r=0}^{n}C_n^{r}a^{n-r}b^{r}$</p>
 <h3 id="分堆分组问题"><a href="#分堆分组问题" class="headerlink" title="分堆分组问题"></a>分堆分组问题</h3><p>把$n$个物品分成$k$组，使得每组物品的个数分别为$n1, n2, n3, …nk, n = n1+n2+…+nk$，则不同的分组方法有$\frac{n!}{n_1!n_2!n_3!…n_k!}$</p>
 <p>上面描述的简化版本，即$n$个物品分为2组，第一组m个，第二组n-m个，则分组方法有$\frac{n!}{m!(n-m)!}$，即$C_n^m$</p>
 <h3 id="古典问题-生日悖论"><a href="#古典问题-生日悖论" class="headerlink" title="古典问题/生日悖论"></a>古典问题/生日悖论</h3><p>将n个球放到N个盒子中$(N \geq n)$，每个盒子至多一个球的概率。随意放的方法有$N^n$中，每个盒子至多放一个的方法有$A_N^n$种</p>
