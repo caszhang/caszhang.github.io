@@ -355,7 +355,11 @@
       
         
           
-            
+            <p>柏松分布的概率函数为$P(X=k)=\frac{x^k}{k!}e^{-\lambda},k=0,1,…$，其中$\lambda$是单位时间（单位面积或单位体积）内随机事件的平均发生次数，上式子表示在观察得到事情平均发生$\lambda$的条件下，实际发生k次的概率</p>
+<p>$E(X)=\sum_{k=0}^{infty}k.\frac{(\lambda)^k}{k!}e^{-\lambda}$<br>$=e^{-\lambda}\sum_{k=1}^{infty}\frac{(\lambda)^{k-1}}{(k-1)!}.\lambda$<br>$=\lambda.e^{-\lambda}.e^{lambda}$<br>$=\lambda$</p>
+<p>$E(X^{2})=E[X(X-1)+X]$<br>$=E[X(X-1)]+E(X)$<br>$=\sum_{k=0}^{+infty}k(k-1).\frac{\lambda^{k}}{k!}e^{-\lambda}+\lambda$<br>$=\lambda^{2}e^{-\lambda}\sum_{k=2}^{+infty}\frac{\lamda^{k-2}}{(k-2)!}+\lamda$<br>$=\lambda^{2}e^{-\lambda}e^{\lambda}+\lambda$<br>$=\lambda^{2}+\lambda$</p>
+<p>$D(X)=E(X^{2})-[E(X)]^2$<br>$=\lambda$</p>
+
           
         
       
