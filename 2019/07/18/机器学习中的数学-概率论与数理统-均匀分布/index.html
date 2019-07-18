@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="设$X \sim U(a,b)$，其概率密度为：当$a&amp;lt;x&amp;lt;b$时,$f(x)=\frac{1}{b-a}$，当$x\leq a$或者$x\geq b$时，$f(x)=0$$E(X)=\int_{-\infty}^{+\infty}$">
+<meta name="description" content="设$X \sim U(a,b)$，其概率密度为：当$a&amp;lt;x&amp;lt;b$时,$f(x)=\frac{1}{b-a}$，当$x\leq a$或者$x\geq b$时，$f(x)=0$$E(X)=\int_{-\infty}^{+\infty}xf(x)dx$$=\int\frac{1}{b-a}xdx$$=\frac{1}{2}(a+b)$ $D(X)=E(X^{2})-[E(X)]^2$$=\">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习中的数学-概率论与数理统-均匀分布">
 <meta property="og:url" content="http://yoursite.com/2019/07/18/机器学习中的数学-概率论与数理统-均匀分布/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="设$X \sim U(a,b)$，其概率密度为：当$a&amp;lt;x&amp;lt;b$时,$f(x)=\frac{1}{b-a}$，当$x\leq a$或者$x\geq b$时，$f(x)=0$$E(X)=\int_{-\infty}^{+\infty}$">
+<meta property="og:description" content="设$X \sim U(a,b)$，其概率密度为：当$a&amp;lt;x&amp;lt;b$时,$f(x)=\frac{1}{b-a}$，当$x\leq a$或者$x\geq b$时，$f(x)=0$$E(X)=\int_{-\infty}^{+\infty}xf(x)dx$$=\int\frac{1}{b-a}xdx$$=\frac{1}{2}(a+b)$ $D(X)=E(X^{2})-[E(X)]^2$$=\">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-18T12:59:05.238Z">
+<meta property="og:updated_time" content="2019-07-18T13:26:37.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-概率论与数理统-均匀分布">
-<meta name="twitter:description" content="设$X \sim U(a,b)$，其概率密度为：当$a&amp;lt;x&amp;lt;b$时,$f(x)=\frac{1}{b-a}$，当$x\leq a$或者$x\geq b$时，$f(x)=0$$E(X)=\int_{-\infty}^{+\infty}$">
+<meta name="twitter:description" content="设$X \sim U(a,b)$，其概率密度为：当$a&amp;lt;x&amp;lt;b$时,$f(x)=\frac{1}{b-a}$，当$x\leq a$或者$x\geq b$时，$f(x)=0$$E(X)=\int_{-\infty}^{+\infty}xf(x)dx$$=\int\frac{1}{b-a}xdx$$=\frac{1}{2}(a+b)$ $D(X)=E(X^{2})-[E(X)]^2$$=\">
 
 
 
@@ -356,7 +356,8 @@
       
 
       
-        <p>设$X \sim U(a,b)$，其概率密度为：<br>当$a&lt;x&lt;b$时,$f(x)=\frac{1}{b-a}$，<br>当$x\leq a$或者$x\geq b$时，$f(x)=0$<br>$E(X)=\int_{-\infty}^{+\infty}$</p>
+        <p>设$X \sim U(a,b)$，其概率密度为：<br>当$a&lt;x&lt;b$时,$f(x)=\frac{1}{b-a}$，<br>当$x\leq a$或者$x\geq b$时，$f(x)=0$<br>$E(X)=\int_{-\infty}^{+\infty}xf(x)dx$<br>$=\int\frac{1}{b-a}xdx$<br>$=\frac{1}{2}(a+b)$</p>
+<p>$D(X)=E(X^{2})-[E(X)]^2$<br>$=\int_{a}^{b}x^{2}\frac{1}{b-a}dx-(\frac{a+b}{2})^2$<br>$=\frac{(b-a)^2}{12}$</p>
 
       
     </div>
