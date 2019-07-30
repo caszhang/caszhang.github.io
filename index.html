@@ -358,6 +358,8 @@
             <h3 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h3><p>离散型 $E(X)=\sum_{i}x_{i}p_{i}$<br>连续型 $E(X)=\int_{-\infty}^{\infty}xf(x)dx$<br>无条件成立 $E(kX)=kE(X), E(X+Y)=E(X)+E(Y)$<br>若X和Y相互独立，$E(XY)=E(X)E(Y)$</p>
 <h3 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h3><p>定义 $D(X)=E\lbrace[X-E(X)]^{2}\rbrace$<br>无条件成立<br>$D(c)=0$<br>$D(X+c)=D(X)$<br>$D(kX)=k^{2}D(X)$<br>$D(X)=E(X^{2})-[E(X)]^2$<br>若X和Y独立，$D(X+Y)=D(X)+D(Y)$</p>
 <h3 id="协方差"><a href="#协方差" class="headerlink" title="协方差"></a>协方差</h3><p>定义 $Cov(X,Y)=E\lbrace[X-E(X)][Y-E(Y)]\rbrace$<br>无条件成立<br>$Cov(X, Y)=Cov(Y, X)$<br>$Cov(aX+b, cY+d)=acCov(X, Y)$<br>$Cov(X_{1}+X_{2}, Y)=Cov(X_{1}, Y)+Cov(X_{2}, Y)$<br>$Cov(X, Y)=E(XY)-E(X)E(Y)$<br>若X和Y独立，$Cov(X, Y)=0$</p>
+<p>协方差是两个随机变量具有相同方向变化趋势的度量，若Cov(X，Y)&gt;0，它们的变化趋势相同，若Cov(X，Y)&lt;0，它们变化趋势相反，若Cov(X，Y)=0，则X和Y不相关。</p>
+<h4 id="协方差上界"><a href="#协方差上界" class="headerlink" title="协方差上界"></a>协方差上界</h4><p>若$D(X)=\sigma_{1}, D(Y)=\sigma_{2}$，取任意实数t，构造随机变量Z，$Z=(X-E(X)).t+(Y-E(Y))$，<br>$E(Z^{2})=\sigma_{1}^{2}t^{2}+2Cov(X, Y)+\sigma_{2}^{2}&gt;0$<br>$\Rightarrow \sigma_{1}^{2}t^{2}+$</p>
 
           
         
