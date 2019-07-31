@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="期望离散型 $E(X)=\sum_{i}x_{i}p_{i}$连续型 $E(X)=\int_{-\infty}^{\infty}xf(x)dx$无条件成立 $E(kX)=kE(X), E(X+Y)=E(X)+E(Y)$若X和Y相互独立，$E(XY)=E(X)E(Y)$ 方差定义 $D(X)=E\lbrace[X-E(X)]^{2}\rbrace$无条件成立$D(c)=0$$D(X+c)=D(X)$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-31T13:53:23.139Z">
+<meta property="og:updated_time" content="2019-07-31T14:01:12.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-概率论与数理统-期望方差协方差">
 <meta name="twitter:description" content="期望离散型 $E(X)=\sum_{i}x_{i}p_{i}$连续型 $E(X)=\int_{-\infty}^{\infty}xf(x)dx$无条件成立 $E(kX)=kE(X), E(X+Y)=E(X)+E(Y)$若X和Y相互独立，$E(XY)=E(X)E(Y)$ 方差定义 $D(X)=E\lbrace[X-E(X)]^{2}\rbrace$无条件成立$D(c)=0$$D(X+c)=D(X)$">
@@ -362,8 +362,7 @@
 <p>协方差是两个随机变量具有相同方向变化趋势的度量，若Cov(X，Y)&gt;0，它们的变化趋势相同，若Cov(X，Y)&lt;0，它们变化趋势相反，若Cov(X，Y)=0，则X和Y不相关。</p>
 <h4 id="协方差上界"><a href="#协方差上界" class="headerlink" title="协方差上界"></a>协方差上界</h4><p>若$D(X)=\sigma_{1}^{2}, D(Y)=\sigma_{2}^{2}$，取任意实数t，构造随机变量Z，$Z=(X-E(X)).t+(Y-E(Y))$，<br>$E(Z^{2})=\sigma_{1}^{2}t^{2}+2Cov(X, Y)t+\sigma_{2}^{2}\geq 0$<br>以t为变量的一元二次方程或者无解，或者只有相同的一个解，所以有：<br>$\Rightarrow \Delta=4Cov^{2}(X, Y)-4\sigma_{1}^{2}\sigma_{2}^{2}\leq 0$<br>$\Rightarrow \vert Cov(X, Y) \vert \leq \sigma_{1}\sigma{2}$</p>
 <h4 id="协方差矩阵"><a href="#协方差矩阵" class="headerlink" title="协方差矩阵"></a>协方差矩阵</h4><p>对于n维随机变量$(X_{1}, X_{2},…X_{n})$，任意两个元素的$X_{i}, X_{j}$都可以得到一个协方差，从而形成一个n*n的矩阵，即为协方差矩阵；显然协方差矩阵为对称矩阵；<br>$c_{ij}=E\lbrace [X_{i}-E(X_{i})][X_{j}-E(X_{j})] \rbrace=Cov(X_{i}, X_{j})$<br>$$<br>\left\vert\begin{matrix}<br>a &amp; b &amp; c \<br>d &amp; e &amp; f<br>\end{matrix} \right\vert\tag{1}<br>$$</p>
-<p>$$A=<br>\left{<br> \begin{matrix}<br>   a &amp; b &amp; \cdots &amp; e\<br>   f &amp; g &amp; \cdots &amp; j \<br>   \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>   p &amp; q &amp; \cdots &amp; t<br>  \end{matrix}<br>\right}<br>$$</p>
-<p>作者：xxq2dream<br>链接：<a href="https://www.jianshu.com/p/08cbe54a5f33" target="_blank" rel="noopener">https://www.jianshu.com/p/08cbe54a5f33</a><br>来源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
+<p>$$A=<br>\left\lbrace<br> \begin{matrix}<br>   a &amp; b &amp; \cdots &amp; e\<br>   f &amp; g &amp; \cdots &amp; j \<br>   \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>   p &amp; q &amp; \cdots &amp; t<br>  \end{matrix}<br>\right\rbrace<br>$$</p>
 
       
     </div>
