@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="设随机变量X的期望为$\mu$，方差为$\sigma^{2}$，对于任意正数$\varepsilon$，有：$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$ 切比雪夫不等式说明，X的方差越小，事件$\lbrace \vert X-\mu \vert \lt \v">
+<meta name="description" content="设随机变量X的期望为$\mu$，方差为$\sigma^{2}$，对于任意正数$\varepsilon$，有：$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习中的数学-概率论与数理统-切比雪夫不等式">
 <meta property="og:url" content="http://yoursite.com/2019/08/01/机器学习中的数学-概率论与数理统-切比雪夫不等式/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="设随机变量X的期望为$\mu$，方差为$\sigma^{2}$，对于任意正数$\varepsilon$，有：$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$ 切比雪夫不等式说明，X的方差越小，事件$\lbrace \vert X-\mu \vert \lt \v">
+<meta property="og:description" content="设随机变量X的期望为$\mu$，方差为$\sigma^{2}$，对于任意正数$\varepsilon$，有：$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-01T12:20:45.535Z">
+<meta property="og:updated_time" content="2019-08-02T08:27:22.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-概率论与数理统-切比雪夫不等式">
-<meta name="twitter:description" content="设随机变量X的期望为$\mu$，方差为$\sigma^{2}$，对于任意正数$\varepsilon$，有：$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$ 切比雪夫不等式说明，X的方差越小，事件$\lbrace \vert X-\mu \vert \lt \v">
+<meta name="twitter:description" content="设随机变量X的期望为$\mu$，方差为$\sigma^{2}$，对于任意正数$\varepsilon$，有：$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$">
 
 
 
@@ -356,8 +356,7 @@
       
 
       
-        <p>设随机变量X的期望为$\mu$，方差为$\sigma^{2}$，对于任意正数$\varepsilon$，有：<br>$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$</p>
-<p>切比雪夫不等式说明，X的方差越小，事件$\lbrace \vert X-\mu \vert \lt \varepsilon \rbrace$发生的概率越大。即：X取的值基本上集中在期望$\mu$附近。也进一步说明了方差的含义。</p>
+        <p>设随机变量X的期望为$\mu$，方差为$\sigma^{2}$，对于任意正数$\varepsilon$，有：<br>$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$<br><a id="more"></a><br>切比雪夫不等式说明，X的方差越小，事件$\lbrace \vert X-\mu \vert \lt \varepsilon \rbrace$发生的概率越大。即：X取的值基本上集中在期望$\mu$附近。也进一步说明了方差的含义。</p>
 <p>$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace$<br>$=\int_{\vert X-\mu \vert \geq \varepsilon}f(x)dx$<br>$\leq \int_{\vert X-\mu \vert \geq \varepsilon}\frac{\vert X-\mu \vert^{2}}{\varepsilon^{2}}f(x)dx$<br>$=\frac{1}{\varepsilon^{2}}\int_{\vert X-\mu \vert \geq \varepsilon}\int(X-\mu)^{2}f(x)dx$<br>$\leq \frac{1}{\varepsilon^{2}}\int_{-\infty}^{+\infty}(X-\mu)^{2}f(x)dx$<br>$=\frac{\sigma^{2}}{\varepsilon^{2}}$</p>
 
       
@@ -421,6 +420,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/02/机器学习中的数学-概率论与数理统计-大数定理/" rel="prev" title="机器学习中的数学-概率论与数理统计-大数定理">
+                机器学习中的数学-概率论与数理统计-大数定理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -490,7 +493,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
