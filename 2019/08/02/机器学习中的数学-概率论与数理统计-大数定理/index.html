@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="设随机变量$X_{1}, X_{2}…X_{n}…$相互独立，并且具有相同的期望$\mu$和方差$\sigma^{2}$，取前n个随机变量的平均$Y_{n}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，对于任意正数$\varepsilon$，有：$\lim_{n\to\infty}P\lbrace \vert Y_{n}-\mu \vert \lt \varepsilon">
+<meta name="description" content="设随机变量$X_{1}, X_{2}…X_{n}…$相互独立，并且具有相同的期望$\mu$和方差$\sigma^{2}$，取前n个随机变量的平均$Y_{n}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，对于任意正数$\varepsilon$，有：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习中的数学-概率论与数理统计-大数定理">
 <meta property="og:url" content="http://yoursite.com/2019/08/02/机器学习中的数学-概率论与数理统计-大数定理/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="设随机变量$X_{1}, X_{2}…X_{n}…$相互独立，并且具有相同的期望$\mu$和方差$\sigma^{2}$，取前n个随机变量的平均$Y_{n}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，对于任意正数$\varepsilon$，有：$\lim_{n\to\infty}P\lbrace \vert Y_{n}-\mu \vert \lt \varepsilon">
+<meta property="og:description" content="设随机变量$X_{1}, X_{2}…X_{n}…$相互独立，并且具有相同的期望$\mu$和方差$\sigma^{2}$，取前n个随机变量的平均$Y_{n}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，对于任意正数$\varepsilon$，有：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-02T09:13:25.795Z">
+<meta property="og:updated_time" content="2019-08-02T09:24:06.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-概率论与数理统计-大数定理">
-<meta name="twitter:description" content="设随机变量$X_{1}, X_{2}…X_{n}…$相互独立，并且具有相同的期望$\mu$和方差$\sigma^{2}$，取前n个随机变量的平均$Y_{n}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，对于任意正数$\varepsilon$，有：$\lim_{n\to\infty}P\lbrace \vert Y_{n}-\mu \vert \lt \varepsilon">
+<meta name="twitter:description" content="设随机变量$X_{1}, X_{2}…X_{n}…$相互独立，并且具有相同的期望$\mu$和方差$\sigma^{2}$，取前n个随机变量的平均$Y_{n}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，对于任意正数$\varepsilon$，有：">
 
 
 
@@ -356,7 +356,7 @@
       
 
       
-        <p>设随机变量$X_{1}, X_{2}…X_{n}…$相互独立，并且具有相同的期望$\mu$和方差$\sigma^{2}$，取前n个随机变量的平均$Y_{n}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，对于任意正数$\varepsilon$，有：<br>$\lim_{n\to\infty}P\lbrace \vert Y_{n}-\mu \vert \lt \varepsilon \rbrace=1$</p>
+        <p>设随机变量$X_{1}, X_{2}…X_{n}…$相互独立，并且具有相同的期望$\mu$和方差$\sigma^{2}$，取前n个随机变量的平均$Y_{n}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，对于任意正数$\varepsilon$，有：<br><a id="more"></a><br>$\lim_{n\to\infty}P\lbrace \vert Y_{n}-\mu \vert \lt \varepsilon \rbrace=1$</p>
 <p>其意义，当n很大时，随机变量$X_{1}, X_{2}…X_{n}$的平均值$Y_{n}$在概率意义下无限接近期望$\mu$</p>
 <p>$Y_{n}$的期望为$\mu$，方差为$\frac{\sigma^{2}}{n}$，即：<br>$E(Y_{n})=E(\frac{1}{n}\Sigma_{i=1}^{n}X_{i})$<br>$=\frac{1}{n}\Sigma_{i=1}^{n}E(X_{i})$<br>$=\mu$<br>$D(Y_{n})=D(\frac{1}{n}\Sigma_{i=1}^{n}X_{i})$<br>$=\frac{1}{n^{2}}\Sigma_{i=1}^{n}D(X_{i})$<br>$=\frac{1}{n}\sigma^{2}$</p>
 <p>根据切比雪夫不等式，对于期望为$\mu$，方差为$\sigma^{2}$的随机变量X，有：<br>$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$<br>代入可得：<br>$P\lbrace \vert Y_{n}-\mu \vert \lt \varepsilon \rbrace \gt 1-\frac{\sigma^{2}}{n\varepsilon^{2}}$<br>即有：<br>$\lim_{n\to\infty}P\lbrace \vert Y_{n}-\mu \vert \lt \varepsilon \rbrace$<br>$\geq \lim_{n \to \infty} 1-\frac{\sigma_{2}}{n\varepsilon^{2}}=1$</p>
