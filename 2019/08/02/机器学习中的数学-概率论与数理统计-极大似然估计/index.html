@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="设总体分布为$f(x,\theta)$，$X_{1}, X_{2}… X_{n}$为该总体采样得到的样本。因为$X_{1}, X_{2}…X_{n}$独立同分布，它们的联合概率密度为：$L(x_{1},x_{2},…,x_{n};\theta_{1},\theta_{2},…\theta_{k}=\prod f(x_{i};\theta_{1},\theta_{2},…,\theta_{k}))$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-06T08:13:23.654Z">
+<meta property="og:updated_time" content="2019-08-06T08:27:42.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-概率论与数理统计-极大似然估计">
 <meta name="twitter:description" content="设总体分布为$f(x,\theta)$，$X_{1}, X_{2}… X_{n}$为该总体采样得到的样本。因为$X_{1}, X_{2}…X_{n}$独立同分布，它们的联合概率密度为：$L(x_{1},x_{2},…,x_{n};\theta_{1},\theta_{2},…\theta_{k}=\prod f(x_{i};\theta_{1},\theta_{2},…,\theta_{k}))$">
@@ -361,7 +361,7 @@
 <h4 id="以正态分布为例求其MLE"><a href="#以正态分布为例求其MLE" class="headerlink" title="以正态分布为例求其MLE"></a>以正态分布为例求其MLE</h4><p>若给定一组样本$X_{1}, X_{2}… X_{n}$，已知他们来自于高斯分布$N(\mu, \sigma)$，试估计参数$\mu, \sigma$<br>过程如下：<br>step1:高斯分布的概率密度函数为:$f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^{2}}}$</p>
 <p>step2:将$X_{i}$的样本值$x_{i}$带入，得到联合概率密度函数-似然函数为:<br>$L(x)=\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_{i}-\mu)^2}{2\sigma^2}}$</p>
 <p>step3:取对数似然函数有,<br>$l(x)=log(L(x))$<br>$=log\prod_{i=1}^{n}\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_{i}-\mu)^2}{2\sigma^2}}$<br>$=\Sigma_{i=1}^{n}log\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x_{i}-\mu)^2}{2\sigma^2}}$<br>$=\Sigma_{i=1}^{n}log\frac{1}{\sqrt{2\pi}\sigma}+\Sigma_{i=1}^{n}-\frac{(x_{i}-\mu)^2}{2\sigma^2}$<br>$=-\frac{n}{2}log(2\pi\sigma^2)-\frac{1}{2\sigma^2}\Sigma_{i=1}^{n}(x_{i}-\mu)^2$</p>
-<p>step4:将$l(x)$看成为关于$\mu,\sigma$的目标函数$l(x,\mu,\sigma)$，对目标函数对$\mu,\sigma$求偏导，<br>$\frac{\partiall(x,\mu,\sigma)}{\partial\mu}=0$<br>$\frac{\partiall(x,\mu,\sigma)}{\partial\sigma}=0$</p>
+<p>step4:将$l(x)$看成为关于$\mu,\sigma$的目标函数$l(x,\mu,\sigma)$，对目标函数对$\mu,\sigma$求偏导，<br>$\frac{\partial l(x,\mu,\sigma)}{\partial\mu}=0$<br>$\frac{\partial l(x,\mu,\sigma)}{\partial\sigma}=0$</p>
 
       
     </div>
