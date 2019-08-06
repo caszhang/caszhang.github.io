@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="期望离散型 $E(X)=\sum_{i}x_{i}p_{i}$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-31T14:37:02.074Z">
+<meta property="og:updated_time" content="2019-08-06T08:45:10.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-概率论与数理统计-期望方差协方差">
 <meta name="twitter:description" content="期望离散型 $E(X)=\sum_{i}x_{i}p_{i}$">
@@ -363,6 +363,7 @@
 <h4 id="协方差上界"><a href="#协方差上界" class="headerlink" title="协方差上界"></a>协方差上界</h4><p>若$D(X)=\sigma_{1}^{2}, D(Y)=\sigma_{2}^{2}$，取任意实数t，构造随机变量Z，$Z=(X-E(X)).t+(Y-E(Y))$，<br>$E(Z^{2})=\sigma_{1}^{2}t^{2}+2Cov(X, Y)t+\sigma_{2}^{2}\geq 0$<br>以t为变量的一元二次方程或者无解，或者只有相同的一个解，所以有：<br>$\Rightarrow \Delta=4Cov^{2}(X, Y)-4\sigma_{1}^{2}\sigma_{2}^{2}\leq 0$<br>$\Rightarrow \vert Cov(X, Y) \vert \leq \sigma_{1}\sigma{2}$</p>
 <h4 id="协方差矩阵"><a href="#协方差矩阵" class="headerlink" title="协方差矩阵"></a>协方差矩阵</h4><p>对于n维随机变量$(X_{1}, X_{2},…X_{n})$，任意两个元素的$X_{i}, X_{j}$都可以得到一个协方差，从而形成一个n*n的矩阵，即为协方差矩阵；显然协方差矩阵为对称矩阵；<br>$c_{ij}=E\lbrace [X_{i}-E(X_{i})][X_{j}-E(X_{j})] \rbrace=Cov(X_{i}, X_{j})$</p>
 <p>$C=<br>\left[<br> \begin{matrix}<br>   c_{11} &amp; c_{12} &amp; \cdots &amp; c_{1n} \\<br>   c_{21} &amp; c_{22} &amp; \cdots &amp; c_{2n} \\<br>   \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>   c_{n1} &amp; c_{n2} &amp; \cdots &amp; c_{nn}<br>  \end{matrix}<br>\right]<br>$</p>
+<h4 id="样本统计量"><a href="#样本统计量" class="headerlink" title="样本统计量"></a>样本统计量</h4><p>设$X_{1}, X_{2}…X_{n}$为一组样本，则，样本均值为$\bar{X}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，样本的方差为$S^{2}=\frac{1}{n-1}\Sigma_{i=1}^{n}(X_{i}-\bar{X})^2$</p>
 
       
     </div>
@@ -563,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#期望"><span class="nav-number">1.</span> <span class="nav-text">期望</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方差"><span class="nav-number">2.</span> <span class="nav-text">方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协方差"><span class="nav-number">3.</span> <span class="nav-text">协方差</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#协方差上界"><span class="nav-number">3.1.</span> <span class="nav-text">协方差上界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协方差矩阵"><span class="nav-number">3.2.</span> <span class="nav-text">协方差矩阵</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#期望"><span class="nav-number">1.</span> <span class="nav-text">期望</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方差"><span class="nav-number">2.</span> <span class="nav-text">方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协方差"><span class="nav-number">3.</span> <span class="nav-text">协方差</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#协方差上界"><span class="nav-number">3.1.</span> <span class="nav-text">协方差上界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协方差矩阵"><span class="nav-number">3.2.</span> <span class="nav-text">协方差矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样本统计量"><span class="nav-number">3.3.</span> <span class="nav-text">样本统计量</span></a></li></ol></li></ol></div>
             
 
           </div>
