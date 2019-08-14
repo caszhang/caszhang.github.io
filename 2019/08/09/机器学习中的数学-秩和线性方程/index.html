@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="矩阵的秩在$m \times n$的矩阵中，任取k行k列，不改变这$k^{2}$个元素在矩阵中的次序，得到k阶方阵，该方阵成为矩阵A的k阶子式。可知，$m \times n$的矩阵A的k阶子式有$C_{m}^{k}C_{n}^{k}$个。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-09T13:04:21.139Z">
+<meta property="og:updated_time" content="2019-08-14T13:33:52.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-秩和线性方程">
 <meta name="twitter:description" content="矩阵的秩在$m \times n$的矩阵中，任取k行k列，不改变这$k^{2}$个元素在矩阵中的次序，得到k阶方阵，该方阵成为矩阵A的k阶子式。可知，$m \times n$的矩阵A的k阶子式有$C_{m}^{k}C_{n}^{k}$个。">
@@ -796,6 +796,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
