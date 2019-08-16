@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="行列式$\begin{matrix}a_{11} &amp;amp; a_{12} &amp;amp; \cdots &amp;amp; a_{1n} \\a_{21} &amp;amp; a_{22} &amp;amp; \cdots &amp;amp; a_{2n} \\\vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots \\a_{n1} &amp;amp; a_{n2} &amp;amp; \cdots &amp;amp;">
+<meta name="description" content="行列式$\left\vert\begin{matrix}a_{11} &amp;amp; a_{12} &amp;amp; \cdots &amp;amp; a_{1n} \\a_{21} &amp;amp; a_{22} &amp;amp; \cdots &amp;amp; a_{2n} \\\vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots \\a_{n1} &amp;amp; a_{n2} &amp;amp; \c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习中的数学-秩和线性方程">
 <meta property="og:url" content="http://yoursite.com/2019/08/09/机器学习中的数学-秩和线性方程/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="行列式$\begin{matrix}a_{11} &amp;amp; a_{12} &amp;amp; \cdots &amp;amp; a_{1n} \\a_{21} &amp;amp; a_{22} &amp;amp; \cdots &amp;amp; a_{2n} \\\vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots \\a_{n1} &amp;amp; a_{n2} &amp;amp; \cdots &amp;amp;">
+<meta property="og:description" content="行列式$\left\vert\begin{matrix}a_{11} &amp;amp; a_{12} &amp;amp; \cdots &amp;amp; a_{1n} \\a_{21} &amp;amp; a_{22} &amp;amp; \cdots &amp;amp; a_{2n} \\\vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots \\a_{n1} &amp;amp; a_{n2} &amp;amp; \c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-16T02:27:29.010Z">
+<meta property="og:updated_time" content="2019-08-16T02:30:44.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-秩和线性方程">
-<meta name="twitter:description" content="行列式$\begin{matrix}a_{11} &amp;amp; a_{12} &amp;amp; \cdots &amp;amp; a_{1n} \\a_{21} &amp;amp; a_{22} &amp;amp; \cdots &amp;amp; a_{2n} \\\vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots \\a_{n1} &amp;amp; a_{n2} &amp;amp; \cdots &amp;amp;">
+<meta name="twitter:description" content="行列式$\left\vert\begin{matrix}a_{11} &amp;amp; a_{12} &amp;amp; \cdots &amp;amp; a_{1n} \\a_{21} &amp;amp; a_{22} &amp;amp; \cdots &amp;amp; a_{2n} \\\vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots \\a_{n1} &amp;amp; a_{n2} &amp;amp; \c">
 
 
 
@@ -367,7 +367,7 @@
       
 
       
-        <h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><p>$<br>\begin{matrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn} \\<br>\end{matrix}<br>=\Sigma_{j_{1}j_{2}…j_{n}}(-1)^{\tau(j_{1}j_{2}…j_{n})a_{1j_{1}a_{2j_{2}…a_{nj_{n}}}}}<br>$</p>
+        <h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><p>$<br>\left\vert<br>\begin{matrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn} \\<br>\end{matrix}<br>\right\vert<br>=\Sigma_{j_{1}j_{2}…j_{n}}(-1)^{\tau(j_{1}j_{2}…j_{n})a_{1j_{1}}a_{2j_{2}}…a_{nj_{n}}<br>$</p>
 <h3 id="矩阵的秩"><a href="#矩阵的秩" class="headerlink" title="矩阵的秩"></a>矩阵的秩</h3><p>在$m \times n$的矩阵中，任取k行k列，不改变这$k^{2}$个元素在矩阵中的次序，得到k阶方阵，该方阵成为矩阵A的k阶子式。可知，$m \times n$的矩阵A的k阶子式有$C_{m}^{k}C_{n}^{k}$个。</p>
 
       
