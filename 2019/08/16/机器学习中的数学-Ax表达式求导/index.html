@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="A为$m \times n$的矩阵，x为$n \times 1$的矩阵，则Ax为$m \times 1$的列向量，记$\vec{y}=A.\vec{x}$令，$A=\left[\begin{matrix}a_{11} &amp;amp; a_{12} &amp;amp; \cdots &amp;amp; a_{1n}  \\a_{21} &amp;amp; a_{22} &amp;amp; \cdots &amp;amp; a_{2n}  \\">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-16T10:56:32.872Z">
+<meta property="og:updated_time" content="2019-08-16T11:03:55.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-Ax表达式求导">
 <meta name="twitter:description" content="A为$m \times n$的矩阵，x为$n \times 1$的矩阵，则Ax为$m \times 1$的列向量，记$\vec{y}=A.\vec{x}$令，$A=\left[\begin{matrix}a_{11} &amp;amp; a_{12} &amp;amp; \cdots &amp;amp; a_{1n}  \\a_{21} &amp;amp; a_{22} &amp;amp; \cdots &amp;amp; a_{2n}  \\">
@@ -367,9 +367,8 @@
       
 
       
-        <p>A为$m \times n$的矩阵，x为$n \times 1$的矩阵，则Ax为$m \times 1$的列向量，记$\vec{y}=A.\vec{x}$<br>令，<br>$<br>A=<br>\left[<br>\begin{matrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}  \\<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}  \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots  \\<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}<br>\end{matrix}<br>\right]<br>$</p>
-<p>$<br>\vec{x}=<br>\left[<br>\begin{matrix}<br>x_{1} \\<br>x_{2} \\<br>\vdots \\<br>x_{n} \\<br>\end{matrix}<br>\right]<br>A.\vec{x}=<br>\left[<br>\begin{matrix}<br>a_{11}x_{1}+a_{12}x_{2}+…+a_{1n}x_{n} \\<br>a_{21}x_{1}+a_{22}x_{2}+…+a_{2n}x_{n} \\<br>\vdots \\<br>a_{n1}x_{1}+a_{n2}x_{2}+…+a_{nn}x_{n}<br>\end{matrix}<br>\right]<br>$</p>
-<p>$<br>\frac{\partial{\vec{y}}}{\partial{x}}=\frac{\partial{A\vec{x}}}{\partial{x}}<br>=\left[<br>\begin{matrix}<br>a_{11} &amp; a_{21} &amp; \cdots &amp; a_{1n}  \\<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}  \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots  \\<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}<br>\<br>\end{matrix}<br>\right]<br>$</p>
+        <p>A为$m \times n$的矩阵，x为$n \times 1$的矩阵，则Ax为$m \times 1$的列向量，记$\vec{y}=A.\vec{x}$<br>令，<br>$<br>A=<br>\left[<br>\begin{matrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}  \\<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}  \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots  \\<br>a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}<br>\end{matrix}<br>\right]<br>$</p>
+<p>$<br>\vec{x}=<br>\left[<br>\begin{matrix}<br>x_{1} \\<br>x_{2} \\<br>\vdots \\<br>x_{n} \\<br>\end{matrix}<br>\right]<br>A.\vec{x}=<br>\left[<br>\begin{matrix}<br>a_{11}x_{1}+a_{12}x_{2}+…+a_{1n}x_{n} \\<br>a_{21}x_{1}+a_{22}x_{2}+…+a_{2n}x_{n} \\<br>\vdots \\<br>a_{m1}x_{1}+a_{m2}x_{2}+…+a_{mn}x_{n}<br>\end{matrix}<br>\right]<br>$<br>因此有，<br>$<br>\frac{\partial{\vec{y}}}{\partial{x}}=\frac{\partial{A\vec{x}}}{\partial{x}}<br>=\left[<br>\begin{matrix}<br>a_{11} &amp; a_{21} &amp; \cdots &amp; a_{m1}  \\<br>a_{12} &amp; a_{22} &amp; \cdots &amp; a_{m2}  \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots  \\<br>a_{1n} &amp; a_{2n} &amp; \cdots &amp; a_{mn}<br>\<br>\end{matrix}<br>\right]<br>=A^{T}<br>$</p>
 
       
     </div>
