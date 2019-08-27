@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="sigmoid函数：$f(x)=\frac{1}{1+e^{-x}}$，定义域$(-\infty, +\infty)$，值域$(0, 1)$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T04:46:23.371Z">
+<meta property="og:updated_time" content="2019-08-27T05:19:31.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-sigmoid函数和导数">
 <meta name="twitter:description" content="sigmoid函数：$f(x)=\frac{1}{1+e^{-x}}$，定义域$(-\infty, +\infty)$，值域$(0, 1)$">
@@ -369,7 +369,8 @@
       
         <p>sigmoid函数：$f(x)=\frac{1}{1+e^{-x}}$，定义域$(-\infty, +\infty)$，值域$(0, 1)$<br><a id="more"></a><br>$f’(x)$<br>$= (\frac{1}{1+e^{-x}})’$<br>$=\frac{e^{-x}}{(1+e^{-x})^2}$<br>$=\frac{1}{1+e^{-x}}\frac{e^{-x}}{1+e^{-x}}$<br>$=\frac{1}{1+e^{-x}}(1-\frac{1}{1+e^{-x}})$<br>$=f(x).(1-f(x))$</p>
 <p>$1-f(x)=f(-x)$</p>
-<p>对于二分类问题，如果分类标签是0，1，$\widehat{y}$为预测值，有，<br>$\widehat{y}=P(y=1|x)$<br>$1-\widehat{y}=P(y=0|x)$<br>综合两种情况，可以有，$P(y|x)=\widehat{y}^{y}.(1-\widehat{y})^{1-y}$<br>利用最大似然估计（MLE）的方法，可以得到损失函数为（取反，取对数）：<br>$L=-\Sigma_{i=1}^{N}y_{i}log(\widehat{y}^{i})+(1-y_{i})log(1-\widehat{y}^{i})$</p>
+<p>对于二分类问题，如果分类标签是0，1，$\widehat{y}$为预测值，有，<br>$\widehat{y}=P(y=1|x)$<br>$1-\widehat{y}=P(y=0|x)$<br>综合两种情况，可以有，$P(y|x)=\widehat{y}^{y}.(1-\widehat{y})^{1-y}$<br>利用最大似然估计（MLE）的方法，可以得到损失函数为（取反，取对数）：<br>$L=-\Sigma_{i=1}^{N}y_{i}log(\widehat{y^{i}})+(1-y_{i})log(1-\widehat{y^{i}})$<br>进一步，y=sigmoid函数$=f(w^{T}x+b)$，利用梯度下降来迭代求参数</p>
+<p>对于二分类问题，如果分类标签是+1，-1，$\widehat{y}$为预测值，有，<br>$\widehat{y}=P(y=+1|x)=f(x)$<br>$1-\widehat{y}=P(y=-1|x)=f(-x)$<br>综合两种情况，可以有，$P(y|x)=f(y.x)$<br>利用最大似然估计（MLE）的方法，可以得到损失函数为（取反，取对数）：<br>$L=-\Sigma_{i=1}^{N}log(f(y.x))$<br>$=\Sigma_{i=1}^{N}log(1+e^{-y_{i}x}})$，其中$x=w^{T}.x_{i}$</p>
 
       
     </div>
