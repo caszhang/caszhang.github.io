@@ -365,10 +365,14 @@
 
       
         
-          
-            <p>假设一个数组Y，$y_{i}$是Y的第i个元素，该元素的softmax值为：$softmax(y_{i})=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$<br>该元素softmax的值，即为该元素的指数与所有元素指数和的比值，因此有，$0&lt;softmax(y_{i})&lt;1, \Sigma_{i=1}^{n}softmax(y_{i})=1$<br>假设原始的神经网络的输出为$y_{1}, y_{2}, …, y_{n}$，经过softmax处理之后，就变成了一个概率分布，可以通过交叉熵来衡量预测的概率分布和真实分布之间的距离了。</p>
-
-          
+          <p>假设一个数组Y，$y_{i}$是Y的第i个元素，该元素的softmax值为：$softmax(y_{i})=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/27/机器学习中的数学-softmax函数/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -521,7 +525,7 @@
           <p>交叉熵是一个信息论的概念，用于度量两个概率分布的差异性信息，用来估算平均编码长度。给定两个概率分布p,q，通过q来表示p的的平均编码长度，记为交叉熵，表示为：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/23/机器学习中的数学-交叉熵/#more" rel="contents">
+            <a class="btn" href="/2019/08/23/机器学习中的数学-交叉熵/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -678,7 +682,7 @@
           <p>A为$m \times n$的矩阵，x为$n \times 1$的矩阵，则Ax为$m \times 1$的列向量，记$\vec{y}=A.\vec{x}$<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/16/机器学习中的数学-Ax表达式求导/#more" rel="contents">
+            <a class="btn" href="/2019/08/16/机器学习中的数学-Ax表达式求导/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -836,7 +840,7 @@
 <h3 id="单位矩阵"><a href="#单位矩阵" class="headerlink" title="单位矩阵"></a>单位矩阵</h3><p>主对角线上全为1，其他全为0的方阵，用I表示一般<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/16/机器学习中的数学-正交阵/#more" rel="contents">
+            <a class="btn" href="/2019/08/16/机器学习中的数学-正交阵/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -993,7 +997,7 @@
           <h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><p>$<br>\left|<br>\begin{matrix}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\<br>a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn} \\<br>\end{matrix}<br>\right|<br>=\Sigma_{j_{1}j_{2}…j_{n}}(-1)^{\tau(j_{1}j_{2}…j_{n})}a_{1j_{1}}a_{2j_{2}}…a_{nj_{n}}<br>$<br>其中，$\tau(j_{1}j_{2}…j_{n})$是自然数1～n得一个排列，为这个排列的逆序数，这样的排列共有n!个<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/09/机器学习中的数学-秩和线性方程/#more" rel="contents">
+            <a class="btn" href="/2019/08/09/机器学习中的数学-秩和线性方程/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1150,7 +1154,7 @@
           <p>设总体分布为$f(x,\theta)$，$X_{1}, X_{2}… X_{n}$为该总体采样得到的样本。因为$X_{1}, X_{2}…X_{n}$独立同分布，它们的联合概率密度为：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/02/机器学习中的数学-极大似然估计/#more" rel="contents">
+            <a class="btn" href="/2019/08/02/机器学习中的数学-极大似然估计/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1307,7 +1311,7 @@
           <p>设随机变量$X_{1}, X_{2}…X_{n}…$相互独立，并且具有相同的期望$\mu$和方差$\sigma^{2}$，取前n个随机变量的平均$Y_{n}=\frac{1}{n}\Sigma_{i=1}^{n}X_{i}$，对于任意正数$\varepsilon$，有：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/02/机器学习中的数学-大数定理/#more" rel="contents">
+            <a class="btn" href="/2019/08/02/机器学习中的数学-大数定理/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1464,7 +1468,7 @@
           <p>设随机变量X的期望为$\mu$，方差为$\sigma^{2}$，对于任意正数$\varepsilon$，有：<br>$P\lbrace \vert X-\mu \vert \geq \varepsilon \rbrace \leq \frac{\sigma^{2}}{\varepsilon^{2}}$<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/01/机器学习中的数学-切比雪夫不等式/#more" rel="contents">
+            <a class="btn" href="/2019/08/01/机器学习中的数学-切比雪夫不等式/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1621,7 +1625,7 @@
           <h3 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h3><p>离散型 $E(X)=\sum_{i}x_{i}p_{i}$<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/29/机器学习中的数学-期望方差协方差/#more" rel="contents">
+            <a class="btn" href="/2019/07/29/机器学习中的数学-期望方差协方差/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1778,7 +1782,7 @@
           <p>设$X \sim N(\mu, \sigma^{2})$，<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/19/机器学习中的数学-正态分布/#more" rel="contents">
+            <a class="btn" href="/2019/07/19/机器学习中的数学-正态分布/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
