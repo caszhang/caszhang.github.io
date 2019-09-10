@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="假设一个数组Y，$y_{i}$是Y的第i个元素的值，该元素的softmax值为：$softmax(y_{i})=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-03T10:31:52.362Z">
+<meta property="og:updated_time" content="2019-09-10T05:06:09.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的数学-softmax函数">
 <meta name="twitter:description" content="假设一个数组Y，$y_{i}$是Y的第i个元素的值，该元素的softmax值为：$softmax(y_{i})=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$">
@@ -370,7 +370,7 @@
         <p>假设一个数组Y，$y_{i}$是Y的第i个元素的值，该元素的softmax值为：$softmax(y_{i})=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$<br><a id="more"></a><br>该元素softmax的值，即为该元素的指数与所有元素指数和的比值，因此有，$0&lt;softmax(y_{i})&lt;1, \Sigma_{i=1}^{n}softmax(y_{i})=1$<br>假设原始的神经网络的输出为$y_{1}, y_{2}, …, y_{n}$，经过softmax处理之后，就变成了一个概率分布，可以通过交叉熵来衡量预测的概率分布和真实分布之间的距离了。</p>
 <p>如果用交叉熵作为损失函数，可以有：<br>$L=-\Sigma_{i=1}^{n}y_{i}ln(softmax(\widehat{y_{i}}))=-\Sigma_{i=1}^{n}y_{i}ln(\frac{e^{\widehat{y_{i}}}}{\Sigma_{j=1}^{n}e^{\widehat{y_{j}}}})$<br>其中$\widehat{y_{i}}$是预测值，$y_{i}$是真实值,one-hot值，所以有：<br>$L_{i}=-ln(\frac{e^{\widehat{y_{i}}}}{\Sigma_{j=1}^{n}e^{\widehat{y_{j}}}})$<br>后续为了书写方便，用$y_{i}$代替$\widehat{y_{i}}$，于是有：<br>$L_{i}=-ln(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})$</p>
 <p>此外有：$\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}=1-\frac{\Sigma_{j \neq i}^{n}e^{y_{j}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$</p>
-<p>$\frac{\partial{L_{i}}}{\partial{y_{i}}}$<br>$=\frac{\partial{(-ln(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i})}}$<br>$=-\frac{1}{\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}} \bullet \frac{\partial{(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i}}}$<br>$=-\frac{\Sigma_{j=1}^{n}e^{y_{j}}}{e^{y_{i}}} \bullet \frac{\partial{(1-\frac{\Sigma_{j \neq i}^{n}e^{y_{j}}}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i}}} $<br>$=-\frac{\Sigma_{j=1}^{n}e^{y_{j}}}{e^{y_{i}}} \bullet -\Sigma_{j \neq i}^{n}e^{y_{j}} \bullet \frac{\partial{(\frac{1}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i}}}$<br>$=\frac{\Sigma_{j=1}^{n}e^{y_{j}}}{e^{y_{i}}} \bullet \Sigma_{j \neq i}^{n}e^{y_{j}} \bullet -\frac{e^{y_{i}}}{(\Sigma_{j=1}^{n}e^{y_{j}})^2}$<br>$=-\frac{\Sigma_{j \neq i}^{n}e^{y_{j}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$<br>$=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}-1$</p>
+<p>$\frac{\partial{L_{i}}}{\partial{y_{i}}}$<br>$=\frac{\partial{(-ln(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})})}{\partial{y_{i}}}$<br>$=-\frac{1}{\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}} \bullet \frac{\partial{(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i}}}$<br>$=-\frac{\Sigma_{j=1}^{n}e^{y_{j}}}{e^{y_{i}}} \bullet \frac{\partial{(1-\frac{\Sigma_{j \neq i}^{n}e^{y_{j}}}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i}}} $<br>$=-\frac{\Sigma_{j=1}^{n}e^{y_{j}}}{e^{y_{i}}} \bullet -\Sigma_{j \neq i}^{n}e^{y_{j}} \bullet \frac{\partial{(\frac{1}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i}}}$<br>$=\frac{\Sigma_{j=1}^{n}e^{y_{j}}}{e^{y_{i}}} \bullet \Sigma_{j \neq i}^{n}e^{y_{j}} \bullet -\frac{e^{y_{i}}}{(\Sigma_{j=1}^{n}e^{y_{j}})^2}$<br>$=-\frac{\Sigma_{j \neq i}^{n}e^{y_{j}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$<br>$=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}-1$</p>
 <p>总结有：<br>$L_{i}=-ln(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})$<br>$\frac{\partial{L_{i}}}{\partial{y_{i}}}=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}-1$</p>
 
       
