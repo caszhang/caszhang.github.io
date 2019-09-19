@@ -366,7 +366,7 @@
       
         
           
-            <p>步骤1:模型假设，如何选择模型;这里选线性模型<br>$y=\Sigma_i^{n}{w.x_{i}}+b$<br>步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数<br>$L(w,b)=\Sigma_{i}^{n}(\widehat{y_{i}}-(w.x_{i}+b))^2$，其中$\widehat{y_{i}}$是真实值<br>步骤3:模型优化，如何筛选出最优的模型；梯度下降是方法之一，这里用这个<br>$\frac{\partial{L(w,b)}}{\partial{w}}=\Sigma_{i}^{n}2.(\widehat{y_{i}}-(w.x_{i}+b)).(-x_{i})$<br>$\frac{\partial{L(w,b)}}{\partial{b}}=\Sigma_{i}^{n}2.(\widehat{y_{i}}-(w.x_{i}+b)).(-1)$<br>$w^{j+1}\leftarrow w^{j}-\eta.\frac{\partial{L(w,b)}}{\partial{w}}\vert w=w^{j},b=b^{j}$<br>$b^{j+1}\leftarrow b^{j}-\eta.\frac{\partial{L(w,b)}}{\partial{b}}\vert w=w^{j},b=b^{j}$</p>
+            <p>步骤1:模型假设，如何选择模型;这里选线性模型<br>$y=\Sigma_i^{n}{w.x_{i}}+b$<br>步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数<br>$L(w,b)=\Sigma_{i}^{n}(\widehat{y_{i}}-(w.x_{i}+b))^2$，其中$\widehat{y_{i}}$是真实值<br>步骤3:模型优化，如何筛选出最优的模型；梯度下降是方法之一，这里用这个<br>$\frac{\partial{L(w,b)}}{\partial{w}}=\Sigma_{i}^{n}2.(\widehat{y_{i}}-(w.x_{i}+b)).(-x_{i})$<br>$\frac{\partial{L(w,b)}}{\partial{b}}=\Sigma_{i}^{n}2.(\widehat{y_{i}}-(w.x_{i}+b)).(-1)$<br>$w^{j+1}\leftarrow w^{j}-\eta.\frac{\partial{L(w,b)}}{\partial{w}}\vert w=w^{j},b=b^{j}$<br>$b^{j+1}\leftarrow b^{j}-\eta.\frac{\partial{L(w,b)}}{\partial{b}}\vert w=w^{j},b=b^{j}$<br>步骤4:必要的优化和调整，如有<br>1，多模型组合<br>2，更多的输入参数，如输入x从一维变成多维，此时，步骤1模型假设为$y=\Sigma_i^{n}{w_{i}.x_{ji}}+b$<br>3，加入正则化，L1正则化步骤2模型评估有$L(w,b)=\Sigma_{i}^{n}(\widehat{y_{i}}-(w_{i}.x_{i}+b))^2+\lambda.\Sigma_{i}^{n}\vert w_{i} \vert$,L2正则化步骤2模型评估有$L(w,b)=\Sigma_{i}^{n}(\widehat{y_{i}}-(w_{i}.x_{i}+b))^2+\lambda.\Sigma_{i}^{n}(w_{i})^2$</p>
 
           
         
