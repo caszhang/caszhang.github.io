@@ -365,10 +365,10 @@
 
       
         
-          <p>可以有，训练数据n组，$(x^1, y^1), (x^2, y^2), …(x^n, y^n)$，其中，$x^n=[x_{1}^n, x_{2}^n, …, x_{k}^n]$，对应待求解参数$\theta^n=[\theta_{1}^n, \theta_{2}^n,…, \theta_{k}^n]$，损失函数可以有$L=L(x,y;\theta)$，最优化问题转化为$\theta^{\star}=\arg {min(L(x,y;\theta))_\theta}$<br>为表示方便，另$g=\frac{\partial L(x,y;\theta)}{\partial{\theta}}，\theta^t$表示第t轮迭代（一般讲，每轮迭代都是训练所有数据），其他情况类似</p>
-<h3 id="普通梯度下降"><a href="#普通梯度下降" class="headerlink" title="普通梯度下降"></a>普通梯度下降</h3><p>以线性规划为例，损失函数可以为$L(x,y;\theta)=\Sigma_{1}^{n}(y^n-(b+\theta^{n}.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\frac{\eta}{\sqrt{t+1}}.g^{t}$</p>
-<p>自适应梯度下降Adaptive Grad<br>以线性规划为例，损失函数可以为$L(x,y;\theta)=\Sigma_{1}^{n}(y^n-(b+\theta^{n}.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\frac{\eta}{\sqrt{\Sigma_{t=0}^{t}(g^{t})^{2}}}.g^{t}$</p>
-<p>随机梯度下降Stochastic Grad<br>与普通梯度下降的区别是，损失函数不需要处理训练集上所有数据，而是每次按某种方法选一个<br>以线性规划为例，损失函数可以为$L(x,y;\theta)=(y^n-(b+\theta^{n}.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\eta.g^{t}$</p>
+          <p>可以有，训练数据n组，$(x^1, y^1), (x^2, y^2), …(x^n, y^n)$，其中，$x^n=[x_{1}^n, x_{2}^n, …, x_{k}^n]$，对应待求解参数$\theta=[\theta_{1}, \theta_{2},…, \theta_{k}]$，损失函数可以有$L=L(x,y;\theta)$，最优化问题转化为$\theta^{\star}=\arg {min(L(x,y;\theta))_\theta}$<br>为表示方便，另$g=\frac{\partial L(x,y;\theta)}{\partial{\theta}}，\theta^t$表示第t轮迭代（一般讲，每轮迭代都是训练所有数据），其他情况类似</p>
+<h3 id="普通梯度下降"><a href="#普通梯度下降" class="headerlink" title="普通梯度下降"></a>普通梯度下降</h3><p>以线性规划为例，损失函数可以为$L(x,y;\theta)=\Sigma_{1}^{n}(y^n-(b+\theta.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\frac{\eta}{\sqrt{t+1}}.g^{t}$</p>
+<p>自适应梯度下降Adaptive Grad<br>以线性规划为例，损失函数可以为$L(x,y;\theta)=\Sigma_{1}^{n}(y^n-(b+\theta.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\frac{\eta}{\sqrt{\Sigma_{t=0}^{t}(g^{t})^{2}}}.g^{t}$</p>
+<p>随机梯度下降Stochastic Grad<br>与普通梯度下降的区别是，损失函数不需要处理训练集上所有数据，而是每次按某种方法选一个<br>以线性规划为例，损失函数可以为$L(x,y;\theta)=(y^n-(b+\theta.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\eta.g^{t}$</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/09/26/梯度下降的三种常见类型/#more" rel="contents">
