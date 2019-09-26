@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="可以有，训练数据n组，$(x^1, y^1), (x^2, y^2), …(x^n, y^n)$，其中，$x^n=[x_{1}^n, x_{2}^n, …, x_{k}^n]$，对应待求解参数$\theta^n=[\theta_{1}^n, \theta_{2}^n,…, \theta_{k}^n]$，损失函数可以有$L=L(x,y;\theta)$，最优化问题转化为$\theta^{\star}">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-26T07:35:38.198Z">
+<meta property="og:updated_time" content="2019-09-26T08:58:47.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="梯度下降的三种常见类型">
 <meta name="twitter:description" content="可以有，训练数据n组，$(x^1, y^1), (x^2, y^2), …(x^n, y^n)$，其中，$x^n=[x_{1}^n, x_{2}^n, …, x_{k}^n]$，对应待求解参数$\theta^n=[\theta_{1}^n, \theta_{2}^n,…, \theta_{k}^n]$，损失函数可以有$L=L(x,y;\theta)$，最优化问题转化为$\theta^{\star}">
@@ -367,7 +367,8 @@
       
 
       
-        <p>可以有，<br>训练数据n组，$(x^1, y^1), (x^2, y^2), …(x^n, y^n)$，其中，$x^n=[x_{1}^n, x_{2}^n, …, x_{k}^n]$，对应待求解参数$\theta^n=[\theta_{1}^n, \theta_{2}^n,…, \theta_{k}^n]$，损失函数可以有$L=L(x,y;\theta)$，最优化问题转化为$\theta^{\star}=\arg {min(L(x,y;\theta))_\theta}$<br>三种常见类型为GradientDescent, AdaGradientDescent, StochasticGradientDescent。GradientDescent是一种求解局部最优解的方法，在线性回归，逻辑回归，深度学习等寻找最优模型中经常被用到，AdaGradientDescent与GradientDescent相比，为不同的参数设置不同的更新迭代变化，StochasticGradientDescent与前两者相比，同样的训练数据集下，能更多次的更新参数迭代。<br><a id="more"></a></p>
+        <p>可以有，训练数据n组，$(x^1, y^1), (x^2, y^2), …(x^n, y^n)$，其中，$x^n=[x_{1}^n, x_{2}^n, …, x_{k}^n]$，对应待求解参数$\theta^n=[\theta_{1}^n, \theta_{2}^n,…, \theta_{k}^n]$，损失函数可以有$L=L(x,y;\theta)$，最优化问题转化为$\theta^{\star}=\arg {min(L(x,y;\theta))_\theta}$</p>
+<p>为表示方便，另$g=\frac{\partial L(x,y;\theta)}{\theta}，\theta^t$表示第t轮迭代（一般讲，每轮迭代都是训练所有数据），其他情况类似<br>普通梯度下降<br>$\theta^{t+1}\leftarrow \theta^{t}-\eta^t.g^{t}$<br>$\eta^{t+1}\leftarrow \frac{\eta^{t}}{\sqrt{t+1}}$<br><a id="more"></a></p>
 
       
     </div>
