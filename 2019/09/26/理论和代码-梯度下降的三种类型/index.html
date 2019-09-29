@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="可以有，训练数据n组，$(x^1, y^1), (x^2, y^2), …(x^n, y^n)$，其中，$x^n=[x_{1}^n, x_{2}^n, …, x_{k}^n]$，对应待求解参数$\theta=[\theta_{1}, \theta_{2},…, \theta_{k}]$，损失函数可以有$L=L(x,y;\theta)$，最优化问题转化为$\theta^{\star}=\arg {m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-26T12:54:22.786Z">
+<meta property="og:updated_time" content="2019-09-29T04:31:39.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理论和代码-梯度下降的三种类型">
 <meta name="twitter:description" content="可以有，训练数据n组，$(x^1, y^1), (x^2, y^2), …(x^n, y^n)$，其中，$x^n=[x_{1}^n, x_{2}^n, …, x_{k}^n]$，对应待求解参数$\theta=[\theta_{1}, \theta_{2},…, \theta_{k}]$，损失函数可以有$L=L(x,y;\theta)$，最优化问题转化为$\theta^{\star}=\arg {m">
@@ -369,8 +369,8 @@
       
         <p>可以有，训练数据n组，$(x^1, y^1), (x^2, y^2), …(x^n, y^n)$，其中，$x^n=[x_{1}^n, x_{2}^n, …, x_{k}^n]$，对应待求解参数$\theta=[\theta_{1}, \theta_{2},…, \theta_{k}]$，损失函数可以有$L=L(x,y;\theta)$，最优化问题转化为$\theta^{\star}=\arg {min(L(x,y;\theta))_\theta}$<br>为表示方便，另$g=\frac{\partial L(x,y;\theta)}{\partial{\theta}}，\theta^t$表示第t轮迭代（一般讲，每轮迭代都是训练所有数据），其他情况类似</p>
 <h3 id="普通梯度下降"><a href="#普通梯度下降" class="headerlink" title="普通梯度下降"></a>普通梯度下降</h3><p>以线性规划为例，损失函数可以为$L(x,y;\theta)=\Sigma_{1}^{n}(y^n-(b+\theta.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\frac{\eta}{\sqrt{t+1}}.g^{t}$</p>
-<p>自适应梯度下降Adaptive Grad<br>以线性规划为例，损失函数可以为$L(x,y;\theta)=\Sigma_{1}^{n}(y^n-(b+\theta.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\frac{\eta}{\sqrt{\Sigma_{t=0}^{t}(g^{t})^{2}}}.g^{t}$</p>
-<p>随机梯度下降Stochastic Grad<br>与普通梯度下降的区别是，损失函数不需要处理训练集上所有数据(损失函数不$\Sigma$)，而是每次按某种方法选一个<br>以线性规划为例，以选取数据$(x^n, y^n)$为例，损失函数可以为$L(x,y;\theta)=(y^n-(b+\theta.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\eta.g^{t}$</p>
+<h3 id="自适应梯度下降Adaptive-Grad"><a href="#自适应梯度下降Adaptive-Grad" class="headerlink" title="自适应梯度下降Adaptive Grad"></a>自适应梯度下降Adaptive Grad</h3><p>以线性规划为例，损失函数可以为$L(x,y;\theta)=\Sigma_{1}^{n}(y^n-(b+\theta.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\frac{\eta}{\sqrt{\Sigma_{t=0}^{t}(g^{t})^{2}}}.g^{t}$</p>
+<h3 id="随机梯度下降Stochastic-Grad"><a href="#随机梯度下降Stochastic-Grad" class="headerlink" title="随机梯度下降Stochastic Grad"></a>随机梯度下降Stochastic Grad</h3><p>与普通梯度下降的区别是，损失函数不需要处理训练集上所有数据(损失函数不$\Sigma$)，而是每次按某种方法选一个<br>以线性规划为例，以选取数据$(x^n, y^n)$为例，损失函数可以为$L(x,y;\theta)=(y^n-(b+\theta.x^{n}))^2$<br>$\theta^{t+1}\leftarrow \theta^{t}-\eta.g^{t}$</p>
 <a id="more"></a>
 
       
@@ -568,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通梯度下降"><span class="nav-number">1.</span> <span class="nav-text">普通梯度下降</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通梯度下降"><span class="nav-number">1.</span> <span class="nav-text">普通梯度下降</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应梯度下降Adaptive-Grad"><span class="nav-number">2.</span> <span class="nav-text">自适应梯度下降Adaptive Grad</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机梯度下降Stochastic-Grad"><span class="nav-number">3.</span> <span class="nav-text">随机梯度下降Stochastic Grad</span></a></li></ol></div>
             
 
           </div>
@@ -800,6 +800,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
