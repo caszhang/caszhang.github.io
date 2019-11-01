@@ -366,7 +366,7 @@
       
         
           
-            <p>步骤1:模型假设，如何选择模型;<br>$f_{w, b}(x)=\frac{1}{1+e^{-(\Sigma_{i=1}^{n}w_{i}x_{i} + b)}}$<br>步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数<br>步骤3:模型优化，如何筛选出最优的模型；梯度下降是方法之一，这里用这个<br>步骤4:必要的调整，如有<br>1，多模型组合<br>2，更多的输入参数，如输入x从一维变成多维，此时，步骤1模型假设为$y=\Sigma_i^{n}{w_{i}.x_{ji}}+b$，其中某个输入$x_{j}=[x_{j0},x_{j1}…]$<br>3，加入正则化，L<br>1正则化步骤2模型评估有$L(w,b)=\Sigma_{i}^{n}(\widehat{y_{i}}-(w_{i}.x_{i}+b))^2+\lambda.\Sigma_{i}^{n}\vert w_{i} \vert$<br>L2正则化步骤2模型评估有$L(w,b)=\Sigma_{i}^{n}(\widehat{y_{i}}-(w_{i}.x_{i}+b))^2+\lambda.\Sigma_{i}^{n}(w_{i})^2$<br>4，选择性使用AdaptiveGradient，或 StochasticGradient<br>5，多维度特征时，特征的归一化到同一范围，进行特征缩放，比如$x_{j}^{i}\leftarrow \frac{x_{j}^{i}-m_{i}}{\sigma_{i}}$，其中$x_{j}^{i}$是第j个训练数据的第i维特征值，$m_{i}$是所有训练数据的第i维特征值的均值，$\sigma_{i}$是所有训练数据第i维特征值的标准差</p>
+            <p>步骤1:模型假设，如何选择模型;<br>$f_{w, b}(x)=\frac{1}{1+e^{-(\Sigma_{i}^{n}w_{i}x_{i} + b)}}$<br>步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数<br>步骤3:模型优化，如何筛选出最优的模型；梯度下降是方法之一，这里用这个<br>步骤4:必要的调整，如有<br>1，多模型组合<br>2，更多的输入参数，如输入x从一维变成多维，此时，步骤1模型假设为$y=\Sigma_i^{n}{w_{i}.x_{ji}}+b$，其中某个输入$x_{j}=[x_{j0},x_{j1}…]$<br>3，加入正则化，L<br>1正则化步骤2模型评估有$L(w,b)=\Sigma_{i}^{n}(\widehat{y_{i}}-(w_{i}.x_{i}+b))^2+\lambda.\Sigma_{i}^{n}\vert w_{i} \vert$<br>L2正则化步骤2模型评估有$L(w,b)=\Sigma_{i}^{n}(\widehat{y_{i}}-(w_{i}.x_{i}+b))^2+\lambda.\Sigma_{i}^{n}(w_{i})^2$<br>4，选择性使用AdaptiveGradient，或 StochasticGradient<br>5，多维度特征时，特征的归一化到同一范围，进行特征缩放，比如$x_{j}^{i}\leftarrow \frac{x_{j}^{i}-m_{i}}{\sigma_{i}}$，其中$x_{j}^{i}$是第j个训练数据的第i维特征值，$m_{i}$是所有训练数据的第i维特征值的均值，$\sigma_{i}$是所有训练数据第i维特征值的标准差</p>
 
           
         
