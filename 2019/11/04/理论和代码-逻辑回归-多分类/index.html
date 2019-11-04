@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维 步骤1:模型假设，如何选择模型;f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}e^{z_{j}}} 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;步骤3:模型">
+<meta name="description" content="统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维 步骤1:模型假设，如何选择模型;$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}e^{z_{j}}}$ 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;步骤3:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理论和代码-逻辑回归-多分类">
 <meta property="og:url" content="http://yoursite.com/2019/11/04/理论和代码-逻辑回归-多分类/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维 步骤1:模型假设，如何选择模型;f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}e^{z_{j}}} 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;步骤3:模型">
+<meta property="og:description" content="统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维 步骤1:模型假设，如何选择模型;$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}e^{z_{j}}}$ 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;步骤3:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-04T12:55:57.194Z">
+<meta property="og:updated_time" content="2019-11-04T13:03:46.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理论和代码-逻辑回归-多分类">
-<meta name="twitter:description" content="统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维 步骤1:模型假设，如何选择模型;f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}e^{z_{j}}} 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;步骤3:模型">
+<meta name="twitter:description" content="统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维 步骤1:模型假设，如何选择模型;$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}e^{z_{j}}}$ 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;步骤3:">
 
 
 
@@ -368,7 +368,7 @@
 
       
         <p>统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维</p>
-<h4 id="步骤1-模型假设，如何选择模型"><a href="#步骤1-模型假设，如何选择模型" class="headerlink" title="步骤1:模型假设，如何选择模型;"></a>步骤1:模型假设，如何选择模型;</h4><p>f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}e^{z_{j}}}</p>
+<h4 id="步骤1-模型假设，如何选择模型"><a href="#步骤1-模型假设，如何选择模型" class="headerlink" title="步骤1:模型假设，如何选择模型;"></a>步骤1:模型假设，如何选择模型;</h4><p>$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}e^{z_{j}}}$</p>
 <h4 id="步骤2-模型评估，如何判断哪个模型好坏；一般是通过损失函数"><a href="#步骤2-模型评估，如何判断哪个模型好坏；一般是通过损失函数" class="headerlink" title="步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;"></a>步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;</h4><h4 id="步骤3-模型优化，如何筛选出最优的模型；梯度下降是常见方法之一"><a href="#步骤3-模型优化，如何筛选出最优的模型；梯度下降是常见方法之一" class="headerlink" title="步骤3:模型优化，如何筛选出最优的模型；梯度下降是常见方法之一;"></a>步骤3:模型优化，如何筛选出最优的模型；梯度下降是常见方法之一;</h4>
       
     </div>
