@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维步骤1:模型假设，如何选择模型;$f(x)=\frac{1}{1+e^{-(\Sigma_{i}^{m}w_{i}x_{i} + b)}}$，对于二分类问题，如果$f(x)&amp;gt;0.5$，属于类1，否则属于类2；可以用sig">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-04T08:52:47.165Z">
+<meta property="og:updated_time" content="2019-11-04T10:29:48.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理论和代码-逻辑回归">
 <meta name="twitter:description" content="统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维步骤1:模型假设，如何选择模型;$f(x)=\frac{1}{1+e^{-(\Sigma_{i}^{m}w_{i}x_{i} + b)}}$，对于二分类问题，如果$f(x)&amp;gt;0.5$，属于类1，否则属于类2；可以用sig">
@@ -367,7 +367,7 @@
       
 
       
-        <p>统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维<br>步骤1:模型假设，如何选择模型;<br>$f(x)=\frac{1}{1+e^{-(\Sigma_{i}^{m}w_{i}x_{i} + b)}}$，对于二分类问题，如果$f(x)&gt;0.5$，属于类1，否则属于类2；可以用sigmoid函数表示，$z=\Sigma_{i}^{m}w_{i}x_{i}+b, p(c|x)=f(x)=\sigma(z)=\frac{1}{1+e^{-z}}$， 其中$m$是每个样本特征向量的维度<br>步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数，这里也是，将训练数据转换为$(x^{n}, \widehat{y^{n}}), \widehat{y^{n}}: 1 for class1, 0 for class2$，损失函数为:<br>$L(w, b)=\Sigma_{i}^{n}(-[\widehat{y^{i}}ln(f(x^{i})) + (1-\widehat{y^{i}})ln(1-f(x^{i}))])$，其中$C(f(x^{i}), \widehat{y^{i}}) = -[\widehat{y^{i}}ln(f(x^{i})) + (1-\widehat{y^{i}})ln(1-f(x^{i}))]$为交叉熵<br>步骤3:模型优化，如何筛选出最优的模型；梯度下降是方法之一，这里用这个<br>$\frac{\partial{L(w,b)}}{\partial{w_{i}}}=\Sigma_{n}-(\widehat{y^{n}}-f(x^{n})).(x_{i}^{n})$<br>$\frac{\partial{L(w,b)}}{\partial{b}}=\Sigma_{n}-(\widehat{y^{n}}-f(x^{n}))$<br>$w_{i}\leftarrow w_{i}-\eta.\frac{\partial{L(w,b)}}{\partial{w_{i}}}$<br>$b\leftarrow b-\eta.\frac{\partial{L(w,b)}}{\partial{b}}$</p>
+        <p>统一后续书写表示，下标表示样本特征向量的维度，上标表示样本的序号，例如$x_{i}$表示x的第i维，$x^{j}$表示第j个样本，$x_{i}^{j}$表示第j个样本的第i维<br>步骤1:模型假设，如何选择模型;<br>$f(x)=\frac{1}{1+e^{-(\Sigma_{i}^{m}w_{i}x_{i} + b)}}$，对于二分类问题，如果$f(x)&gt;0.5$，属于类1，否则属于类2；可以用sigmoid函数表示，$z=\Sigma_{i}^{m}w_{i}x_{i}+b, p(c|x)=f(x)=\sigma(z)=\frac{1}{1+e^{-z}}$， 其中$m$是每个样本特征向量的维度<br>步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数，这里也是，将训练数据转换为$(x^{n}, \widehat{y^{n}}), \widehat{y^{n}}: 1 for class1, 0 for class2$，损失函数为:<br>$L(w, b)=\Sigma_{i}^{n}(-[\widehat{y^{i}}ln(f(x^{i})) + (1-\widehat{y^{i}})ln(1-f(x^{i}))])$，其中$C(f(x^{i}), \widehat{y^{i}}) = -[\widehat{y^{i}}ln(f(x^{i})) + (1-\widehat{y^{i}})ln(1-f(x^{i}))]$为交叉熵<br>步骤3:模型优化，如何筛选出最优的模型；梯度下降是方法之一，这里用这个<br>$\frac{\partial{L(w,b)}}{\partial{w_{i}}}=\Sigma_{n}-(\widehat{y^{n}}-f(x^{n})).(x_{i}^{n})$<br>$\frac{\partial{L(w,b)}}{\partial{b}}=\Sigma_{n}-(\widehat{y^{n}}-f(x^{n}))$<br>$w_{i}\leftarrow w_{i}-\eta.\frac{\partial{L(w,b)}}{\partial{w_{i}}}$<br>$b\leftarrow b-\eta.\frac{\partial{L(w,b)}}{\partial{b}}$<br>Tips：逻辑回归用交叉熵作为损失函数，而线性回归用平方差作为损失函数，对于逻辑回归，$\widehat{y}$只为0或1，可以看下平方差损失函数和梯度，<br>$L(w, b)=\frac{1}{2}\Sigma (f(x)-\widehat{y})^{2}$<br>$\frac{\partial{(f(x)-\widehat{y})^2}}{\partial{w_{i}}}=2(f(x)-\widehat{y})f(x)(1-f(x))x_{i}$<br>可以看出，假设$\widehat{y}=1$时，使用交叉熵，距离目标越远，更新的越快，越近更新的越慢，而对于平方差，目标很远时$(\widehat{y}=1, f(x)~0)$，更新很慢</p>
 
       
     </div>
