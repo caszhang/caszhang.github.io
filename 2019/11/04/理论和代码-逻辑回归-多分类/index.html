@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="步骤1:模型假设，如何选择模型;$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}^{c}e^{z_{j}}}$，c为类别的个数$z_{i}=b+\Sigma_{j}^{m} w^{j}x^{j}$，m为样本特征向量维度 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;这里是用交叉熵，$\Sigma_{j}^{c}-\widehat{y">
+<meta name="description" content="步骤1:模型假设，如何选择模型;$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}^{c}e^{z_{j}}}$，c为类别的个数$z_{i}=b_{i}+\Sigma_{j}^{m} w^{j}x^{j}$，m为样本特征向量维度 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;这里是用交叉熵，$\Sigma_{j}^{c}-\wideh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理论和代码-逻辑回归-多分类">
 <meta property="og:url" content="http://yoursite.com/2019/11/04/理论和代码-逻辑回归-多分类/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="步骤1:模型假设，如何选择模型;$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}^{c}e^{z_{j}}}$，c为类别的个数$z_{i}=b+\Sigma_{j}^{m} w^{j}x^{j}$，m为样本特征向量维度 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;这里是用交叉熵，$\Sigma_{j}^{c}-\widehat{y">
+<meta property="og:description" content="步骤1:模型假设，如何选择模型;$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}^{c}e^{z_{j}}}$，c为类别的个数$z_{i}=b_{i}+\Sigma_{j}^{m} w^{j}x^{j}$，m为样本特征向量维度 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;这里是用交叉熵，$\Sigma_{j}^{c}-\wideh">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-05T05:02:23.603Z">
+<meta property="og:updated_time" content="2019-11-12T04:53:51.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理论和代码-逻辑回归-多分类">
-<meta name="twitter:description" content="步骤1:模型假设，如何选择模型;$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}^{c}e^{z_{j}}}$，c为类别的个数$z_{i}=b+\Sigma_{j}^{m} w^{j}x^{j}$，m为样本特征向量维度 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;这里是用交叉熵，$\Sigma_{j}^{c}-\widehat{y">
+<meta name="twitter:description" content="步骤1:模型假设，如何选择模型;$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}^{c}e^{z_{j}}}$，c为类别的个数$z_{i}=b_{i}+\Sigma_{j}^{m} w^{j}x^{j}$，m为样本特征向量维度 步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;这里是用交叉熵，$\Sigma_{j}^{c}-\wideh">
 
 
 
@@ -367,8 +367,8 @@
       
 
       
-        <h4 id="步骤1-模型假设，如何选择模型"><a href="#步骤1-模型假设，如何选择模型" class="headerlink" title="步骤1:模型假设，如何选择模型;"></a>步骤1:模型假设，如何选择模型;</h4><p>$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}^{c}e^{z_{j}}}$，c为类别的个数<br>$z_{i}=b+\Sigma_{j}^{m} w^{j}x^{j}$，m为样本特征向量维度</p>
-<h4 id="步骤2-模型评估，如何判断哪个模型好坏；一般是通过损失函数"><a href="#步骤2-模型评估，如何判断哪个模型好坏；一般是通过损失函数" class="headerlink" title="步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;"></a>步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;</h4><p>这里是用交叉熵，$\Sigma_{j}^{c}-\widehat{y_{j}}ln(y_{j})$表示某一个样本的估计分布与真实分布的差异，越小越好<br>$L(w, b)=\Sigma_{i=1}^{n}\Sigma_{j}^{c}-\widehat{y_{j}}ln(y_{j})$，<br>$y_{j}$是c维的one-hot向量，c是类别的个数，n是样本的个数<br>可以看出，$(w, b)$组合在一起时一个$c*(m+1)$的二维数组，每一行对于一个$z_{i}$的$w, b$</p>
+        <h4 id="步骤1-模型假设，如何选择模型"><a href="#步骤1-模型假设，如何选择模型" class="headerlink" title="步骤1:模型假设，如何选择模型;"></a>步骤1:模型假设，如何选择模型;</h4><p>$f(x)=p(C_{i}|x)=y_{i}=\frac{e^{z_{i}}}{\Sigma_{j}^{c}e^{z_{j}}}$，c为类别的个数<br>$z_{i}=b_{i}+\Sigma_{j}^{m} w^{j}x^{j}$，m为样本特征向量维度</p>
+<h4 id="步骤2-模型评估，如何判断哪个模型好坏；一般是通过损失函数"><a href="#步骤2-模型评估，如何判断哪个模型好坏；一般是通过损失函数" class="headerlink" title="步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;"></a>步骤2:模型评估，如何判断哪个模型好坏；一般是通过损失函数;</h4><p>这里是用交叉熵，$\Sigma_{j}^{c}-\widehat{y_{j}}ln(y_{j})$表示某一个样本的估计分布与真实分布的差异，越小越好<br>$L(w, b)=\Sigma_{i=1}^{n}\Sigma_{j}^{c}-\widehat{y_{j}}ln(y_{j})$，<br>c是类别的个数，n是样本的个数<br>因为$\widehat{y_{j}}$只有在类别为j的时候才取1，其他取0，所以$\Sigma_{j}^{c}-\widehat{y_{j}}ln(y_{j})=-\widehat{y_{j}}ln(y_{j})$<br>所以，$L(w, b)=\Sigma_{i=1}^{n}-\widehat{y_{j}}ln(y_{j})$，<br>可以看出，$(w, b)$组合在一起时一个$c*(m+1)$的二维数组，每一行对于一个$z_{i}$的$w, b$</p>
 <h4 id="步骤3-模型优化，如何筛选出最优的模型；梯度下降是常见方法之一"><a href="#步骤3-模型优化，如何筛选出最优的模型；梯度下降是常见方法之一" class="headerlink" title="步骤3:模型优化，如何筛选出最优的模型；梯度下降是常见方法之一;"></a>步骤3:模型优化，如何筛选出最优的模型；梯度下降是常见方法之一;</h4>
       
     </div>
