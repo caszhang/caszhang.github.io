@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="其中data位于lr_softmax.csvtensorflow 版本 softmax_tf.py">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理论和代码-逻辑回归-多分类-代码">
+<meta property="og:url" content="http://yoursite.com/2019/11/26/理论和代码-逻辑回归-多分类-代码/index.html">
+<meta property="og:site_name" content="余道技术">
+<meta property="og:description" content="其中data位于lr_softmax.csvtensorflow 版本 softmax_tf.py">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-26T13:06:52.899Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理论和代码-逻辑回归-多分类-代码">
+<meta name="twitter:description" content="其中data位于lr_softmax.csvtensorflow 版本 softmax_tf.py">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/11/26/理论和代码-逻辑回归-多分类-代码/"/>
+
+
+
+
+
+  <title>理论和代码-逻辑回归-多分类-代码 | 余道技术</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c1259a9e4fb7ce6c97fe0636d995440d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">余道技术</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/理论和代码-逻辑回归-多分类-代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="caszhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="余道技术">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">理论和代码-逻辑回归-多分类-代码</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-26T20:51:40+08:00">
+                2019-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习机器学习/理论和代码/" itemprop="url" rel="index">
+                    <span itemprop="name">理论和代码</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>其中data位于<a href="https://github.com/caszhang/data/blob/master/lr_softmax.csv" target="_blank" rel="noopener">lr_softmax.csv</a><br>tensorflow 版本 softmax_tf.py<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># coding=utf-8</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line">import os</span><br><span class="line">import sys</span><br><span class="line">import tensorflow as tf</span><br><span class="line"></span><br><span class="line">def load_data(path):</span><br><span class="line">    data_mat = []</span><br><span class="line">    label_mat = []</span><br><span class="line">    fd = file(path)</span><br><span class="line">    for line in fd.readlines():</span><br><span class="line">        line = line.strip()</span><br><span class="line">        if not line:</span><br><span class="line">            continue</span><br><span class="line">        line_array = line.split(&apos;,&apos;)</span><br><span class="line">        temp_data_array = []</span><br><span class="line">        for i in range(len(line_array) - 1):</span><br><span class="line">            temp_data_array.append(float(line_array[i]))</span><br><span class="line">        data_mat.append(temp_data_array)</span><br><span class="line">        label_mat.append(int(line_array[len(line_array) - 1]))</span><br><span class="line"></span><br><span class="line">    fd.close()</span><br><span class="line"></span><br><span class="line">    return np.array(data_mat), np.array(label_mat)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#define dimension</span><br><span class="line">label_dim = 3</span><br><span class="line">input_dim = 4 # zi = bi*1 + wi1*x1 + wi2*x2 + wi3*x3 + wi4*x4</span><br><span class="line"></span><br><span class="line"># train data</span><br><span class="line">input_features = tf.placeholder(tf.float32, [None, input_dim])</span><br><span class="line">input_label = tf.placeholder(tf.float32, [None, label_dim])</span><br><span class="line"></span><br><span class="line"># define variable</span><br><span class="line">W = tf.Variable(tf.random_normal([input_dim, label_dim], name=&apos;weights&apos;))</span><br><span class="line">b = tf.Variable(tf.zeros([label_dim], name=&apos;bias&apos;))</span><br><span class="line"></span><br><span class="line"># define model</span><br><span class="line">output = tf.nn.softmax(tf.matmul(input_features, W)+b)</span><br><span class="line"></span><br><span class="line"># loss</span><br><span class="line">cross_entropy = tf.reduce_mean(-tf.reduce_sum(input_label*tf.log(output), reduction_indices=[1]))</span><br><span class="line"></span><br><span class="line"># train</span><br><span class="line">#train = tf.train.AdamOptimizer(0.1).minimize(cross_entropy)</span><br><span class="line">train = tf.train.AdamOptimizer(0.05).minimize(cross_entropy)</span><br><span class="line"></span><br><span class="line">x, y = load_data(&apos;lr_softmax.csv&apos;)</span><br><span class="line">print np.shape(x)</span><br><span class="line">print np.shape(y)</span><br><span class="line">temp_y = np.zeros([np.shape(y)[0], label_dim])</span><br><span class="line">print np.shape(temp_y)[0]</span><br><span class="line">for idx in range(np.shape(temp_y)[0]):</span><br><span class="line">    temp_y[idx][y[idx]-1] = 1</span><br><span class="line">y = temp_y</span><br><span class="line">print np.shape(y)</span><br><span class="line"></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line">file_path = &quot;./models/softmax_tf&quot;</span><br><span class="line">path = os.path.dirname(os.path.abspath(file_path))</span><br><span class="line">if not os.path.isdir(path):</span><br><span class="line">    os.makedir(path)</span><br><span class="line"></span><br><span class="line">with tf.Session() as sess:</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line"></span><br><span class="line">    for i in range(1000):</span><br><span class="line">        sess.run(train, feed_dict=&#123;input_features:x, input_label:y&#125;)</span><br><span class="line"></span><br><span class="line">        if i % 50 == 0:</span><br><span class="line">            print sess.run(W)</span><br><span class="line">            sess.run(output, feed_dict=&#123;input_features:x&#125;)</span><br><span class="line">            correct_prediction = tf.equal(tf.argmax(input_label, 1), tf.argmax(output, 1))</span><br><span class="line">            accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br><span class="line">            print sess.run(accuracy, feed_dict=&#123;input_features:x, input_label:y&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    saver.save(sess, file_path, write_meta_graph=True)</span><br></pre></td></tr></table></figure></p>
+<p>python版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import os</span><br><span class="line">import random</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line"># z = w0 + w1*x1 + w2*x2</span><br><span class="line">def load_data_set(path):</span><br><span class="line">    data_mat = []</span><br><span class="line">    label_mat = []</span><br><span class="line">    fd = file(path)</span><br><span class="line">    for line in fd.readlines():</span><br><span class="line">        line = line.strip()</span><br><span class="line">        if not line:</span><br><span class="line">            continue</span><br><span class="line">        line_array = line.split(&apos;,&apos;)</span><br><span class="line">        temp_data_array = []</span><br><span class="line">        temp_data_array.append(1)</span><br><span class="line">        for i in range(len(line_array) - 1):</span><br><span class="line">            temp_data_array.append(float(line_array[i]))</span><br><span class="line">        data_mat.append(temp_data_array)</span><br><span class="line">        label_mat.append(int(line_array[len(line_array) - 1]))</span><br><span class="line">    #print len(data_mat)</span><br><span class="line">    #print len(label_mat)</span><br><span class="line">    return data_mat, label_mat</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def gradient_descent(data_mat_in, class_labels, class_num, max_cycles=1000000):</span><br><span class="line">    data_matrix = np.mat(data_mat_in) # convert to Numpy matrix</span><br><span class="line">    label_mat = np.mat(class_labels).transpose() - 1 # convert to Numpy matrix and convert</span><br><span class="line">    m, n = np.shape(data_matrix)</span><br><span class="line">    alpha = 0.00001</span><br><span class="line">    lamta = 0.01</span><br><span class="line">    threshold = 0.01</span><br><span class="line">    y_mat = np.zeros((m, class_num)) # m*c</span><br><span class="line">    #np.random.seed(1)</span><br><span class="line">    #weights = np.random.random((class_num, n)) / m</span><br><span class="line">    weights = np.zeros((class_num, n))</span><br><span class="line">    for i in xrange(m):</span><br><span class="line">        y_mat[i, label_mat[i][0]] = 1.0</span><br><span class="line"></span><br><span class="line">    for k in xrange(max_cycles):</span><br><span class="line">        exp_w_x = np.exp(np.dot(data_matrix, weights.transpose())) # m*n * n*c--&gt;m*c</span><br><span class="line">        exp_w_x_p = exp_w_x / exp_w_x.sum(axis=1).reshape(m, 1) #m*c</span><br><span class="line">        delta_w = -1.0 / m * np.dot((y_mat - exp_w_x_p).transpose(), data_matrix) + lamta * weights</span><br><span class="line">        cost = -1.0 / m * np.sum(np.multiply(y_mat, np.log(exp_w_x_p))) + lamta / 2 * np.sum(weights ** 2)</span><br><span class="line">        weights -= alpha * delta_w</span><br><span class="line">        if k % 50 == 0:</span><br><span class="line">            #print cost #more little and little</span><br><span class="line">            print np.sum(np.fabs(delta_w)) # more little and little</span><br><span class="line">        if np.sum(np.fabs(delta_w)) &lt; threshold:</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    return weights</span><br><span class="line"></span><br><span class="line">def get_exp(x, weights, idx):</span><br><span class="line">   weights_idx = weights[idx]</span><br><span class="line">   return math.exp(np.dot(weights_idx, x.transpose()))</span><br><span class="line"></span><br><span class="line">def get_exp_probability(x, weights, idx, class_num):</span><br><span class="line">    up = get_exp(x, weights, idx)</span><br><span class="line">    down = 0.0</span><br><span class="line">    for i in xrange(class_num):</span><br><span class="line">       down += get_exp(x, weights, i)</span><br><span class="line">    return up * 1.0 / down</span><br><span class="line"></span><br><span class="line">def stochastic_gradient_descent(data_mat_in, class_labels, class_num, max_cycles=1000000):</span><br><span class="line">    data_matrix = np.mat(data_mat_in) # convert to Numpy matrix</span><br><span class="line">    label_mat = np.mat(class_labels).transpose() - 1 # convert to Numpy matrix and convert</span><br><span class="line">    m, n = np.shape(data_matrix)</span><br><span class="line">    alpha = 0.00001</span><br><span class="line">    lamta = 0.01</span><br><span class="line">    threshold = 0.01</span><br><span class="line">    weights = np.zeros((class_num, n))</span><br><span class="line">    for k in xrange(max_cycles):</span><br><span class="line">        expect = 0.0</span><br><span class="line">        cost_p1 = 0.0</span><br><span class="line">        cost_p2 = 0.0</span><br><span class="line">        for i in xrange(class_num):</span><br><span class="line">            delta_w_i = np.zeros((1, n))</span><br><span class="line">            for j in xrange(m):</span><br><span class="line">                x = data_matrix[j]</span><br><span class="line">                y = label_mat[j]</span><br><span class="line">                probability = get_exp_probability(x, weights, i, class_num)</span><br><span class="line">                delta_w_i += x * (int(y==i) - probability)</span><br><span class="line">                cost_p1 += int(y==i) * np.log(probability)</span><br><span class="line"></span><br><span class="line">            cost_p2 += np.sum(weights[i] ** 2)</span><br><span class="line">            delta_w_i = -1.0 / m * delta_w_i + lamta * weights[i]</span><br><span class="line">            weights[i] = weights[i] - alpha * delta_w_i</span><br><span class="line">            expect += np.sum(np.fabs(delta_w_i))</span><br><span class="line"></span><br><span class="line">        cost =  -1.0 / m * cost_p1 + lamta / 2 * cost_p2</span><br><span class="line">        if k % 50 == 0:</span><br><span class="line">            #print expect</span><br><span class="line">            print cost</span><br><span class="line">        if expect &lt; threshold:</span><br><span class="line">            break</span><br><span class="line">    return weights</span><br><span class="line"></span><br><span class="line">def stochastic_gradient_descentEnhance(data_mat_in, class_labels, class_num, max_cycles=1000000):</span><br><span class="line">    data_matrix = np.mat(data_mat_in) # convert to Numpy matrix</span><br><span class="line">    label_mat = np.mat(class_labels).transpose() - 1 # convert to Numpy matrix and convert</span><br><span class="line">    m, n = np.shape(data_matrix)</span><br><span class="line">    alpha = 0.00001</span><br><span class="line">    lamta = 0.01</span><br><span class="line">    threshold = 0.01</span><br><span class="line">    weights = np.zeros((class_num, n))</span><br><span class="line">    for k in xrange(max_cycles):</span><br><span class="line">        expect = 0.0</span><br><span class="line">        cost_p1 = 0.0</span><br><span class="line">        cost_p2 = 0.0</span><br><span class="line">        for i in xrange(class_num):</span><br><span class="line">            delta_w_i = np.zeros((1, n))</span><br><span class="line">            dataIdxArray = range(m) # [0, 1, ...., m - 1]</span><br><span class="line">            for j in xrange(m):</span><br><span class="line">                alpha = 4 / (1.0 + j + k) + 0.000001 #alpha decrease with iteration</span><br><span class="line">                randIdx = int(random.uniform(0, len(dataIdxArray)))</span><br><span class="line">                x = data_matrix[randIdx]</span><br><span class="line">                y = label_mat[randIdx]</span><br><span class="line">                probability = get_exp_probability(x, weights, i, class_num)</span><br><span class="line">                delta_w_i += x * (int(y==i) - probability)</span><br><span class="line">                cost_p1 += int(y==i) * np.log(probability)</span><br><span class="line">                del(dataIdxArray[randIdx])</span><br><span class="line"></span><br><span class="line">            cost_p2 += np.sum(weights[i] ** 2)</span><br><span class="line">            delta_w_i = -1.0 / m * delta_w_i + lamta * weights[i]</span><br><span class="line">            weights[i] = weights[i] - alpha * delta_w_i</span><br><span class="line">            expect += np.sum(np.fabs(delta_w_i))</span><br><span class="line"></span><br><span class="line">        cost =  -1.0 / m * cost_p1 + lamta / 2 * cost_p2</span><br><span class="line">        if k % 50 == 0:</span><br><span class="line">            #print expect</span><br><span class="line">            print cost</span><br><span class="line">        if expect &lt; threshold:</span><br><span class="line">            break</span><br><span class="line">    return weights</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    data_mat, label_mat = load_data_set(sys.argv[1])</span><br><span class="line">    label_set = set()</span><br><span class="line">    for label in label_mat:</span><br><span class="line">        label_set.add(label)</span><br><span class="line"></span><br><span class="line">    weights = gradient_descent(data_mat, label_mat, len(label_set), 1000000) #1000 # work ok</span><br><span class="line">    #weights = stochastic_gradient_descent(data_mat, label_mat, len(label_set), 100000) #1000</span><br><span class="line">    #weights = stochastic_gradient_descentEnhance(data_mat, label_mat, len(label_set), 10000) #1000</span><br><span class="line">    #np.savetxt(&apos;%s_weights&apos; % (sys.argv[2]), weights)</span><br><span class="line">    np.savetxt(&apos;weights.txt&apos;, weights)</span><br><span class="line">    data_mat_array = np.array(data_mat)</span><br><span class="line">    calc_mat = np.dot(data_mat_array, weights.transpose())</span><br><span class="line">    print np.argmax(calc_mat, axis=1)</span><br><span class="line">    rec_array = np.argmax(calc_mat, axis=1)</span><br><span class="line">    print len(label_mat)</span><br><span class="line">    ok_count = 0</span><br><span class="line">    for i in range(len(label_mat)):</span><br><span class="line">        if rec_array[i] + 1 == label_mat[i]:</span><br><span class="line">            ok_count += 1</span><br><span class="line"></span><br><span class="line">    print ok_count</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/caszhang_wechat.png" alt="caszhang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/caszhang_alipay.png" alt="caszhang 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/04/理论和代码-逻辑回归-多分类-理论/" rel="next" title="理论和代码-逻辑回归-多分类-理论">
+                <i class="fa fa-chevron-left"></i> 理论和代码-逻辑回归-多分类-理论
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">caszhang</p>
+              <p class="site-description motion-element" itemprop="description">信仰技术，信仰科学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/caszhang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">caszhang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'a89d8aa0527fa7ae3fa7',
+          clientSecret: 'e14a5773d0439c6d0f729d43c369ad4fcc3ee9d6',
+          repo: 'yudao',
+          owner: 'caszhang',
+          admin: ['caszhang'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
