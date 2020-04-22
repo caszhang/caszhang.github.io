@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="实际操作过程中，常见的深度学习场景，基本上会在数据筛选、数据处理、模型结构调整、训练参数调整等，常见的可操作的点有：1，数据预处理相关，数据集合选取，数据集预处理，训练集与测试集比例和划分2，模型和调参数相关，模型设计和调整，learning rate, epoch, batch_size，激活函数，dropout，归一化，损失函数选择，优化算法选择/梯度下降类型选择">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理论和代码-深度学习技巧">
+<meta property="og:url" content="http://yoursite.com/2020/04/22/理论和代码-深度学习技巧/index.html">
+<meta property="og:site_name" content="余道技术">
+<meta property="og:description" content="实际操作过程中，常见的深度学习场景，基本上会在数据筛选、数据处理、模型结构调整、训练参数调整等，常见的可操作的点有：1，数据预处理相关，数据集合选取，数据集预处理，训练集与测试集比例和划分2，模型和调参数相关，模型设计和调整，learning rate, epoch, batch_size，激活函数，dropout，归一化，损失函数选择，优化算法选择/梯度下降类型选择">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-04-22T11:44:00.089Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理论和代码-深度学习技巧">
+<meta name="twitter:description" content="实际操作过程中，常见的深度学习场景，基本上会在数据筛选、数据处理、模型结构调整、训练参数调整等，常见的可操作的点有：1，数据预处理相关，数据集合选取，数据集预处理，训练集与测试集比例和划分2，模型和调参数相关，模型设计和调整，learning rate, epoch, batch_size，激活函数，dropout，归一化，损失函数选择，优化算法选择/梯度下降类型选择">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/22/理论和代码-深度学习技巧/"/>
+
+
+
+
+
+  <title>理论和代码-深度学习技巧 | 余道技术</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c1259a9e4fb7ce6c97fe0636d995440d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">余道技术</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/22/理论和代码-深度学习技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="caszhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="余道技术">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">理论和代码-深度学习技巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-22T18:58:24+08:00">
+                2020-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习机器学习/理论和代码/" itemprop="url" rel="index">
+                    <span itemprop="name">理论和代码</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>实际操作过程中，常见的深度学习场景，基本上会在数据筛选、数据处理、模型结构调整、训练参数调整等，常见的可操作的点有：<br>1，数据预处理相关，数据集合选取，数据集预处理，训练集与测试集比例和划分<br>2，模型和调参数相关，模型设计和调整，learning rate, epoch, batch_size，激活函数，dropout，归一化，损失函数选择，优化算法选择/梯度下降类型选择<br><a id="more"></a><br>深度学习场景下，一般不需要再进行特征选择，但上述1还是会有一定的工作量，这里只针对第2点；</p>
+<p>模型的设计和调整：神经网络的深度，每一层的神经元数<br>learning rate：参数迭代的速度，越小越慢越精细，越大越快，可能错过全局最优而不收敛，合适选择<br>epoch：全数据训练集合的训练轮次<br>batch_size：一次训练涉及的样本数量，越大，训练/迭代的越快，参数迭代的轮数可以认为等于epoch*训练样本数/batch_size<br>激活函数：sogmoid, relu, softmax等等<br>dropout：防止过拟合的方法之一，适当舍弃神经元，注意，如果训练时dropout=p，测试时权重要乘1-p<br>归一化：L1/L2，max-min归一化等等<br>损失函数选择：欧式距离，最大似然，交叉墒等<br>优化算法选择/梯度下降类型选择：SGD，Adam等</p>
+<p>下面两个基于keras的手写字识别例子，注释掉的是上面提到的一些调试选择<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import keras</span><br><span class="line">from keras.models import Sequential</span><br><span class="line">from keras.layers.core import Dense, Dropout, Activation</span><br><span class="line">from keras.optimizers import SGD, Adam</span><br><span class="line">from keras.utils import np_utils</span><br><span class="line">from keras.datasets import mnist</span><br><span class="line"></span><br><span class="line">def load_data():</span><br><span class="line">    (x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line">    number = 10000</span><br><span class="line">    x_train = x_train[0:number]</span><br><span class="line">    x_train = x_train.reshape(number, 28*28)</span><br><span class="line">    x_train = x_train.astype(&apos;float32&apos;)</span><br><span class="line"></span><br><span class="line">    y_train = y_train[0:number]</span><br><span class="line">    y_train = np_utils.to_categorical(y_train, 10)</span><br><span class="line"></span><br><span class="line">    x_test = x_test.reshape(x_test.shape[0], 28*28)</span><br><span class="line">    x_test = x_test.astype(&apos;float32&apos;)</span><br><span class="line"></span><br><span class="line">    y_test = np_utils.to_categorical(y_test, 10)</span><br><span class="line"></span><br><span class="line">    # normalize value between [0, 1]</span><br><span class="line">    #x_train = x_train</span><br><span class="line">    x_train = x_train / 255</span><br><span class="line">    #x_test = x_test</span><br><span class="line">    x_test = x_test / 255</span><br><span class="line"></span><br><span class="line">    return (x_train, y_train), (x_test, y_test)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(x_train, y_train), (x_test, y_test) = load_data()</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line">#model.add(Dense(input_dim=28*28, units=689, activation=&apos;sigmoid&apos;))</span><br><span class="line">model.add(Dense(input_dim=28*28, units=689, activation=&apos;relu&apos;))</span><br><span class="line">model.add(Dropout(0.7))</span><br><span class="line">#model.add(Dense(units=689, activation=&apos;sigmoid&apos;))</span><br><span class="line">model.add(Dense(units=689, activation=&apos;relu&apos;))</span><br><span class="line">model.add(Dropout(0.7))</span><br><span class="line">#model.add(Dense(units=689, activation=&apos;sigmoid&apos;))</span><br><span class="line">model.add(Dense(units=689, activation=&apos;relu&apos;))</span><br><span class="line">model.add(Dropout(0.7))</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">for _ in range(10):</span><br><span class="line">    model.add(Dense(units=689, activation=&apos;sigmoid&apos;))</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">model.add(Dense(units=10, activation=&apos;softmax&apos;))</span><br><span class="line"></span><br><span class="line">#model.compile(loss=&apos;mse&apos;, optimizer=SGD(lr=0.1), metrics=[&apos;accuracy&apos;])</span><br><span class="line">#model.compile(loss=&apos;categorical_crossentropy&apos;, optimizer=Adam(lr=0.1), metrics=[&apos;accuracy&apos;])</span><br><span class="line">model.compile(loss=&apos;categorical_crossentropy&apos;, optimizer=SGD(lr=0.1), metrics=[&apos;accuracy&apos;])</span><br><span class="line"></span><br><span class="line">#model.fit(x_train, y_train, batch_size=10000, epochs=20)</span><br><span class="line">model.fit(x_train, y_train, batch_size=100, epochs=20)</span><br><span class="line"></span><br><span class="line">result = model.evaluate(x_test, y_test)</span><br><span class="line"></span><br><span class="line">print(&apos;TEST ACC: &apos;, result[1])</span><br><span class="line"></span><br><span class="line">#result = model.predict(x_test)</span><br></pre></td></tr></table></figure></p>
+<p>另外一种写法，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import random</span><br><span class="line">import keras</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">from keras.datasets import mnist</span><br><span class="line">from keras.models import Sequential, Model</span><br><span class="line">from keras.layers.core import Dense, Dropout, Activation</span><br><span class="line">from keras.optimizers import RMSprop, SGD, Adam</span><br><span class="line">from keras.utils import np_utils</span><br><span class="line"></span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line">print(x_train.shape, y_train.shape)</span><br><span class="line">print(x_test.shape, y_test.shape)</span><br><span class="line"></span><br><span class="line">x_train = x_train.reshape(x_train.shape[0], -1)</span><br><span class="line">x_train = x_train.astype(&apos;float32&apos;)</span><br><span class="line">x_test = x_test.reshape(x_test.shape[0], -1)</span><br><span class="line">x_test = x_test.astype(&apos;float32&apos;)</span><br><span class="line"></span><br><span class="line"># normalization to [0, 1]</span><br><span class="line">x_train = x_train / 255</span><br><span class="line">x_test = x_test / 255</span><br><span class="line"></span><br><span class="line"># specify the class label</span><br><span class="line">batch_size = 128</span><br><span class="line">number_epochs = 10</span><br><span class="line"></span><br><span class="line"># convert class vectors to one-hot vector</span><br><span class="line">y_train = np_utils.to_categorical(y_train, num_classes=10)</span><br><span class="line">y_test = np_utils.to_categorical(y_test, num_classes=10)</span><br><span class="line"></span><br><span class="line"># model definition</span><br><span class="line">model = Sequential()</span><br><span class="line"></span><br><span class="line"># hidden layer, 1st fully-connected layer</span><br><span class="line">model.add(Dense(units=512, input_shape=(28*28,)))</span><br><span class="line">model.add(Activation(&apos;relu&apos;))</span><br><span class="line">model.add(Dropout(0.2))</span><br><span class="line"># hidden layer, 2st fully-connected layer</span><br><span class="line">model.add(Dense(units=512))</span><br><span class="line">model.add(Activation(&apos;relu&apos;))</span><br><span class="line">model.add(Dropout(0.2))</span><br><span class="line"># output layer</span><br><span class="line">model.add(Dense(units=10))</span><br><span class="line">model.add(Activation(&apos;softmax&apos;))</span><br><span class="line"></span><br><span class="line"># print the model summary</span><br><span class="line">model.summary()</span><br><span class="line"></span><br><span class="line"># start compilation</span><br><span class="line">model.compile(loss=&apos;categorical_crossentropy&apos;, optimizer=&apos;rmsprop&apos;, metrics=[&apos;accuracy&apos;])</span><br><span class="line"></span><br><span class="line"># start training</span><br><span class="line">history = model.fit(x_train, y_train, epochs=number_epochs, batch_size=batch_size)</span><br><span class="line"></span><br><span class="line"># print the history</span><br><span class="line">print(&apos;model params: &apos;, history.params)</span><br><span class="line"></span><br><span class="line"># start evaluation</span><br><span class="line">evl_result = model.evaluate(x_test, y_test)</span><br><span class="line">print(model.metrics_names[0], &apos;:&apos;, evl_result[0], model.metrics_names[1], &apos;:&apos;, evl_result[1])</span><br><span class="line"></span><br><span class="line"># select one pic fro previewing</span><br><span class="line">x_test_0 = x_test[0, :].reshape(1, 28*28)</span><br><span class="line">y_test_0 = y_test[0, :]</span><br><span class="line">plt.imshow(x_test_0.reshape(28, 28))</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># start prediction</span><br><span class="line">prediction = model.predict(x_test_0[:])</span><br><span class="line">print(&apos;truth :&apos;, np.argmax(y_test_0), &apos;prediction :&apos;, prediction[0], &apos;dnn predict :&apos;, np.argmax(prediction[0]))</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/caszhang_wechat.png" alt="caszhang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/caszhang_alipay.png" alt="caszhang 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/30/每日一点-关于IP/" rel="next" title="每天一点-关于IP">
+                <i class="fa fa-chevron-left"></i> 每天一点-关于IP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">caszhang</p>
+              <p class="site-description motion-element" itemprop="description">信仰技术，信仰科学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/caszhang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">caszhang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'a89d8aa0527fa7ae3fa7',
+          clientSecret: 'e14a5773d0439c6d0f729d43c369ad4fcc3ee9d6',
+          repo: 'data',
+          owner: 'caszhang',
+          admin: ['caszhang'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
