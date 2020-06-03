@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="余道技术">
 <meta property="og:description" content="约定，$x_{i}^{n}$为第n个样本的第i维">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-03T02:43:22.877Z">
+<meta property="og:updated_time" content="2020-06-03T07:30:02.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理论和代码-线性SVM-理论">
 <meta name="twitter:description" content="约定，$x_{i}^{n}$为第n个样本的第i维">
@@ -367,7 +367,13 @@
       
 
       
-        <p>约定，$x_{i}^{n}$为第n个样本的第i维<br><a id="more"></a><br>步骤1，模型假设，如何选择模型<br>$f(x)=\sum\limits_{i}w_{i}x_{i} + b=\begin{bmatrix}w &amp; b\end{bmatrix} \cdot \begin{bmatrix}x \\ 1\end{bmatrix}=\begin{bmatrix}w \\ b\end{bmatrix}^{T} \cdot \begin{bmatrix}x \\ 1\end{bmatrix}=w^{T}x$<br>新的w，新的x<br>步骤2，模型评估，如何判断模型好坏，通过定义损失函数<br>$L=\sum\limits_{n}l(f(x^{n}), \hat{y}^{n}) + \lambda\left \|w\right \|_{2}$<br>$l(f(x^{n}), \hat{y}^{n})=max(0, 1-f(x^{n})\hat{y}^{n}) $<br>步骤3，模型优化，筛选出好的模型，常为梯度下降<br>\frac{\partial{l}}{\partial{l}}<br>步骤4，必要的优化，如多模型组合，L1/L2正则化，增加参数输入，随机梯度/自适应梯度，特征归一化等</p>
+        <p>约定，$x_{i}^{n}$为第n个样本的第i维<br><a id="more"></a><br>步骤1，模型假设，如何选择模型<br>$f(x)=\sum\limits_{i}w_{i}x_{i} + b=\begin{bmatrix}w &amp; b\end{bmatrix} \cdot \begin{bmatrix}x \\ 1\end{bmatrix}=\begin{bmatrix}w \\ b\end{bmatrix}^{T} \cdot \begin{bmatrix}x \\ 1\end{bmatrix}=w^{T}x$<br>新的w，新的x<br>步骤2，模型评估，如何判断模型好坏，通过定义损失函数<br>$L=\sum\limits_{n}l(f(x^{n}), \hat{y}^{n}) + \lambda\left \|w\right \|_{2}$<br>$l(f(x^{n}), \hat{y}^{n})=max(0, 1-f(x^{n})\hat{y}^{n}) $<br>步骤3，模型优化，筛选出好的模型，常为梯度下降<br>$\frac{\partial{l(f(x^{n}), \hat{y}^{n})}}{\partial{f(x^{n})}}$<br>$=\frac{\partial{max(0, 1-f(x^{n})\hat{y}^{n})}}{\partial{f(x^{n})}}$<br>$=<br>\begin{cases}<br>-\hat{y}^{n} \quad  &amp; 1-f(x^{n})\hat{y}^{n}&gt;0 \\<br>0 \quad  &amp; otherwise<br>\end{cases}<br>$</p>
+<p>$\frac{\partial{f(x^{n})}}{\partial{w_i}}=x_{i}^{n}$</p>
+<p>$\frac{\partial{l(f(x^{n}), \hat{y}^{n})}}{\partial{w_i}}$<br>$=\frac{\partial{l(f(x^{n}), \hat{y}^{n})}}{\partial{f(x^{n})}}\frac{\partial{f(x^{n})}}{\partial{w_i}}$<br>$=<br>\begin{cases}<br>-\hat{y}^{n}x_i^n \quad  &amp; 1-f(x^{n})\hat{y}^{n}&gt;0 \\<br>0 \quad  &amp; otherwise<br>\end{cases}<br>$<br>$=-\delta(1-f(x^{n})\hat{y}^{n}&gt;0)\hat{y}^{n}x_{i}^{n}$</p>
+<p>$\frac{\partial{L}}{\partial{w_i}}$<br>$=\sum\limits_{n}-\delta(1-f(x^{n})\hat{y}^{n}&gt;0)\hat{y}^{n}x_{i}^{n} + 2\lambda w_i$</p>
+<p>$w_i\leftarrow w_i-\eta \frac{\partial{L}}{\partial{w_i}}$</p>
+<p>步骤4，必要的优化，如多模型组合，L1/L2正则化，增加参数输入，随机梯度/自适应梯度，特征归一化等</p>
+<p>根据上面的推导可知，如果w初始化为0的向量的话（不考虑归一化部分）,每次权重更新都是$x^n$的线性组合，所以最终得到的w也是$x^n$的线性组合，不是所有的$x^n$都会加到w中，加入的这些可以认为是支持向量，于是对应上面步骤，有另外的写法<br>步骤1，模型假设，如何选择模型<br>$X=\begin{bmatrix}x^1 &amp; x^2 &amp; \cdots &amp; x^n\end{bmatrix}$<br>$\alpha=\begin{bmatrix}\alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_n\end{bmatrix}$<br>$w=\sum\limits_n x^n\alpha_n=X\alpha$<br>$f(x)=w^{T}x=\alpha^TX^Tx$<br>$=\sum\limits_n\alpha_n(x^n.x)$<br>$=\sum\limits_n\alpha_nK(x^n, x)$<br>即设$K(x^n, x)=x^n\cdot x$为核方法<br>步骤2，模型评估，如何判断模型好坏，通过定义损失函数<br>步骤3，模型优化，筛选出好的模型，常为梯度下降</p>
 
       
     </div>
