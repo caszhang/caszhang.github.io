@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="RNN和DNN相比，RNN是有记忆的DNN，RNN将神经元的输出作为记忆保存起来，和后续的input一起参与后续的计算，而DNN每个神经元的输出只依赖于当前的input。此种情况下的DNN不太好训练，RNN的total loss变化非常陡峭，在训练的时候不是很好操作，原因是神经元的记忆保存，对于长序列情况，同样的权重会被反复积累使用，微小的差别经过积累/相乘之后，差异较大，比如$1.01^1000">
+<meta name="description" content="RNN和DNN相比，RNN是有记忆的DNN，RNN将神经元的输出作为记忆保存起来，和后续的input一起参与后续的计算，而DNN每个神经元的输出只依赖于当前的input。此种情况下的DNN不太好训练，RNN的total loss变化非常陡峭，在训练的时候不是很好操作，原因是神经元的记忆保存，对于长序列情况，同样的权重会被反复积累使用，微小的差别经过积累/相乘之后，差异较大，比如$1.01^{100">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理论和代码-RNN-理论">
 <meta property="og:url" content="http://yoursite.com/2020/06/12/理论和代码-RNN-理论/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="RNN和DNN相比，RNN是有记忆的DNN，RNN将神经元的输出作为记忆保存起来，和后续的input一起参与后续的计算，而DNN每个神经元的输出只依赖于当前的input。此种情况下的DNN不太好训练，RNN的total loss变化非常陡峭，在训练的时候不是很好操作，原因是神经元的记忆保存，对于长序列情况，同样的权重会被反复积累使用，微小的差别经过积累/相乘之后，差异较大，比如$1.01^1000">
+<meta property="og:description" content="RNN和DNN相比，RNN是有记忆的DNN，RNN将神经元的输出作为记忆保存起来，和后续的input一起参与后续的计算，而DNN每个神经元的输出只依赖于当前的input。此种情况下的DNN不太好训练，RNN的total loss变化非常陡峭，在训练的时候不是很好操作，原因是神经元的记忆保存，对于长序列情况，同样的权重会被反复积累使用，微小的差别经过积累/相乘之后，差异较大，比如$1.01^{100">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-18T06:09:18.882Z">
+<meta property="og:updated_time" content="2020-06-18T06:52:59.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理论和代码-RNN-理论">
-<meta name="twitter:description" content="RNN和DNN相比，RNN是有记忆的DNN，RNN将神经元的输出作为记忆保存起来，和后续的input一起参与后续的计算，而DNN每个神经元的输出只依赖于当前的input。此种情况下的DNN不太好训练，RNN的total loss变化非常陡峭，在训练的时候不是很好操作，原因是神经元的记忆保存，对于长序列情况，同样的权重会被反复积累使用，微小的差别经过积累/相乘之后，差异较大，比如$1.01^1000">
+<meta name="twitter:description" content="RNN和DNN相比，RNN是有记忆的DNN，RNN将神经元的输出作为记忆保存起来，和后续的input一起参与后续的计算，而DNN每个神经元的输出只依赖于当前的input。此种情况下的DNN不太好训练，RNN的total loss变化非常陡峭，在训练的时候不是很好操作，原因是神经元的记忆保存，对于长序列情况，同样的权重会被反复积累使用，微小的差别经过积累/相乘之后，差异较大，比如$1.01^{100">
 
 
 
@@ -367,7 +367,7 @@
       
 
       
-        <p>RNN和DNN相比，RNN是有记忆的DNN，RNN将神经元的输出作为记忆保存起来，和后续的input一起参与后续的计算，而DNN每个神经元的输出只依赖于当前的input。此种情况下的DNN不太好训练，RNN的total loss变化非常陡峭，在训练的时候不是很好操作，原因是神经元的记忆保存，对于长序列情况，同样的权重会被反复积累使用，微小的差别经过积累/相乘之后，差异较大，比如$1.01^1000=20000,0.99^1000=0$，而1.01和0.99的本身差异是比较小的。<br><a id="more"></a><br>解决RNN梯度消失或梯度爆炸的方法，常见就是LSTM，通过4个输入（3个控制gate，1个输入），1个输出来解决。<br>假设样本序列为$x^t, x^{t+1}, x^{t+2}…$，LSTM的memery cell的数量为1，即只有一个记忆神经元，可以有<br>$<br>x^{t}.w=z \\<br>x^{t}.w^{i}=z^{i} \\<br>x^{t}.w^{f}=z^{f} \\<br>x^{t}.w^{o}=z^{o} \\<br>c^{t}=g(z)f(z^{i})+c^{t-1}f(z^{f}) \\<br>output^t=f(z^{o})h(c^{t}) \\<br>$<br>其中，$f, g, h$都是激活函数，f一般选simoid，将$z^i, z^o, z^f$约束到0-1之间，代表三个门的开关程度，$g, h$可以选择线性或者sigmoid。<br>训练$x^{t+1}$时，输出output，$c^{t}$和$x^{t+1}$一起作为输入，即$(output^{t}, c^t, x^{t+1})$</p>
+        <p>RNN和DNN相比，RNN是有记忆的DNN，RNN将神经元的输出作为记忆保存起来，和后续的input一起参与后续的计算，而DNN每个神经元的输出只依赖于当前的input。此种情况下的DNN不太好训练，RNN的total loss变化非常陡峭，在训练的时候不是很好操作，原因是神经元的记忆保存，对于长序列情况，同样的权重会被反复积累使用，微小的差别经过积累/相乘之后，差异较大，比如$1.01^{1000}=20000,0.99^{1000}=0$，而1.01和0.99的本身差异是比较小的。<br><a id="more"></a><br>解决RNN梯度消失或梯度爆炸的方法，常见就是LSTM，通过4个输入（3个控制gate，1个输入），1个输出来解决。<br>假设样本序列为$x^t, x^{t+1}, x^{t+2}…$，LSTM的memery cell的数量为1，即只有一个记忆神经元，可以有<br>$<br>x^{t}.w=z \\<br>x^{t}.w^{i}=z^{i} \\<br>x^{t}.w^{f}=z^{f} \\<br>x^{t}.w^{o}=z^{o} \\<br>c^{t}=g(z)f(z^{i})+c^{t-1}f(z^{f}) \\<br>output^t=f(z^{o})h(c^{t}) \\<br>$<br>其中，$f, g, h$都是激活函数，f一般选simoid，将$z^i, z^o, z^f$约束到0-1之间，代表三个门的开关程度，$g, h$可以选择线性或者sigmoid。<br>训练$x^{t+1}$时，输出output，$c^{t}$和$x^{t+1}$一起作为输入，即$(output^{t}, c^t, x^{t+1})$</p>
 <p>与LSTM相似，GRU少一个gate，参数比LSTM少，能够达到相当的功能。<br>$<br>sigmoid(x^{t}.w)=z \\<br>sigmoid(x^{t}.w^{r})= r \\<br>tanh((x^{t}, r.h^{t-1}).w^{h})=h \\<br>h^{t}=(1-z).h^{t-1}+z.h \\<br>output^t=h^{t}<br>$<br>训练$x^{t+1}$时，$h^{t}$和$x^{t+1}$一起作为输入，即$(h^t, x^{t+1})$作为上式子中的$x^{t}$</p>
 
       
