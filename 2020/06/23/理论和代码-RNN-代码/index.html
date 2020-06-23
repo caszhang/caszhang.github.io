@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="假设一个数组Y，$y_{i}$是Y的第i个元素的值，该元素的softmax值为：$softmax(y_{i})=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$">
+<meta name="description" content="学习根据sin预测cos的函数曲线，序列长度20，具体见代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习中的数学-softmax函数">
-<meta property="og:url" content="http://yoursite.com/2019/08/27/机器学习中的数学-softmax函数/index.html">
+<meta property="og:title" content="理论和代码-RNN-代码">
+<meta property="og:url" content="http://yoursite.com/2020/06/23/理论和代码-RNN-代码/index.html">
 <meta property="og:site_name" content="余道技术">
-<meta property="og:description" content="假设一个数组Y，$y_{i}$是Y的第i个元素的值，该元素的softmax值为：$softmax(y_{i})=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$">
+<meta property="og:description" content="学习根据sin预测cos的函数曲线，序列长度20，具体见代码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-19T07:26:36.866Z">
+<meta property="og:updated_time" content="2020-06-23T09:35:29.179Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习中的数学-softmax函数">
-<meta name="twitter:description" content="假设一个数组Y，$y_{i}$是Y的第i个元素的值，该元素的softmax值为：$softmax(y_{i})=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$">
+<meta name="twitter:title" content="理论和代码-RNN-代码">
+<meta name="twitter:description" content="学习根据sin预测cos的函数曲线，序列长度20，具体见代码">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/27/机器学习中的数学-softmax函数/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/23/理论和代码-RNN-代码/"/>
 
 
 
 
 
-  <title>机器学习中的数学-softmax函数 | 余道技术</title>
+  <title>理论和代码-RNN-代码 | 余道技术</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/机器学习中的数学-softmax函数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/23/理论和代码-RNN-代码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="caszhang">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习中的数学-softmax函数</h1>
+          <h1 class="post-title" itemprop="name headline">理论和代码-RNN-代码</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T10:54:28+08:00">
-                2019-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T17:24:19+08:00">
+                2020-06-23
               </time>
             
 
@@ -325,19 +325,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习机器学习/数学/" itemprop="url" rel="index">
-                    <span itemprop="name">数学</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习机器学习/数学/高等数学/" itemprop="url" rel="index">
-                    <span itemprop="name">高等数学</span>
+                  <a href="/categories/深度学习机器学习/理论和代码/" itemprop="url" rel="index">
+                    <span itemprop="name">理论和代码</span>
                   </a>
                 </span>
 
@@ -378,11 +367,7 @@
       
 
       
-        <p>假设一个数组Y，$y_{i}$是Y的第i个元素的值，该元素的softmax值为：$softmax(y_{i})=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$<br><a id="more"></a><br>该元素softmax的值，即为该元素的指数与所有元素指数和的比值，因此有，$0&lt;softmax(y_{i})&lt;1, \Sigma_{i=1}^{n}softmax(y_{i})=1$<br>假设原始的神经网络的输出为$y_{1}, y_{2}, …, y_{n}$，经过softmax处理之后，就变成了一个概率分布，可以通过交叉熵来衡量预测的概率分布和真实分布之间的距离了。</p>
-<p>如果用交叉熵作为损失函数，可以有：<br>$L=-\Sigma_{i=1}^{n}y_{i}ln(softmax(\widehat{y_{i}}))=-\Sigma_{i=1}^{n}y_{i}ln(\frac{e^{\widehat{y_{i}}}}{\Sigma_{j=1}^{n}e^{\widehat{y_{j}}}})$<br>其中$\widehat{y_{i}}$是预测值，$y_{i}$是真实值,one-hot值，所以有：<br>$L_{i}=-ln(\frac{e^{\widehat{y_{i}}}}{\Sigma_{j=1}^{n}e^{\widehat{y_{j}}}})$<br>后续为了书写方便，用$y_{i}$代替$\widehat{y_{i}}$，于是有：<br>$L_{i}=-ln(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})$</p>
-<p>此外有：$\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}=1-\frac{\Sigma_{j \neq i}^{n}e^{y_{j}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$</p>
-<p>$\frac{\partial{L_{i}}}{\partial{y_{i}}}$<br>$=\frac{\partial{(-ln(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})})}{\partial{y_{i}}}$<br>$=-\frac{1}{\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}} \bullet \frac{\partial{(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i}}}$<br>$=-\frac{\Sigma_{j=1}^{n}e^{y_{j}}}{e^{y_{i}}} \bullet \frac{\partial{(1-\frac{\Sigma_{j \neq i}^{n}e^{y_{j}}}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i}}} $<br>$=-\frac{\Sigma_{j=1}^{n}e^{y_{j}}}{e^{y_{i}}} \bullet -\Sigma_{j \neq i}^{n}e^{y_{j}} \bullet \frac{\partial{(\frac{1}{\Sigma_{j=1}^{n}e^{y_{j}}})}}{\partial{y_{i}}}$<br>$=\frac{\Sigma_{j=1}^{n}e^{y_{j}}}{e^{y_{i}}} \bullet \Sigma_{j \neq i}^{n}e^{y_{j}} \bullet -\frac{e^{y_{i}}}{(\Sigma_{j=1}^{n}e^{y_{j}})^2}$<br>$=-\frac{\Sigma_{j \neq i}^{n}e^{y_{j}}}{\Sigma_{j=1}^{n}e^{y_{j}}}$<br>$=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}-1$</p>
-<p>总结有：<br>$L_{i}=-ln(\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}})$<br>$\frac{\partial{L_{i}}}{\partial{y_{i}}}=\frac{e^{y_{i}}}{\Sigma_{j=1}^{n}e^{y_{j}}}-1$</p>
+        <p>学习根据sin预测cos的函数曲线，序列长度20，具体见代码<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"># coding=utf-8</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">os.environ[&apos;KERAS_BACKEND&apos;] = &apos;tensorflow&apos;</span><br><span class="line"></span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">from keras.models import Sequential</span><br><span class="line">from keras.layers import LSTM, TimeDistributed, Dense</span><br><span class="line">from keras.optimizers import Adam</span><br><span class="line"></span><br><span class="line">BATCH_START = 0</span><br><span class="line">INPUT_LENGTH = 20</span><br><span class="line">BATCH_SIZE = 50</span><br><span class="line"></span><br><span class="line">INPUT_SIZE = 1</span><br><span class="line">OUTPUT_SIZE = 1</span><br><span class="line">CELL_SIZE = 20</span><br><span class="line"></span><br><span class="line">LR = 0.008</span><br><span class="line"></span><br><span class="line">def get_batch():</span><br><span class="line">    global BATCH_START</span><br><span class="line">    xs = np.arange(BATCH_START, BATCH_START + BATCH_SIZE * INPUT_LENGTH).reshape(BATCH_SIZE, INPUT_LENGTH) * np.pi / 180</span><br><span class="line">    #print xs[0, :]</span><br><span class="line">    seq = np.sin(xs)</span><br><span class="line">    res = np.cos(xs)</span><br><span class="line">    #print res[0, :]</span><br><span class="line">    BATCH_START += INPUT_LENGTH</span><br><span class="line">    #plt.plot(xs[0, :], res[0, :], &apos;r&apos;)#, xs[0, :], seq[0, :], &apos;b--&apos;)</span><br><span class="line">    #plt.plot(xs[0, :], res[0, :], &apos;r&apos;, label=&apos;cos&apos;)</span><br><span class="line">    #plt.plot(xs[0, :], seq[0, :], &apos;b&apos;, label=&apos;sin&apos;)</span><br><span class="line">    #plt.show()</span><br><span class="line">    #print seq[:, :, np.newaxis].shape</span><br><span class="line">    #print res[:, :, np.newaxis].shape</span><br><span class="line">    #print xs.shape</span><br><span class="line">    return [seq[:, :, np.newaxis], res[:, :, np.newaxis], xs]</span><br><span class="line"></span><br><span class="line">#get_batch()</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line"># build LSTM RNN</span><br><span class="line">model.add(LSTM(</span><br><span class="line">    batch_input_shape=(BATCH_SIZE, INPUT_LENGTH, INPUT_SIZE), # INPUT_LENGTH is input_length, INPUT_SIZE is input_dim</span><br><span class="line">    output_dim=CELL_SIZE, # output_dim </span><br><span class="line">    return_sequences = True, # True output at all steps, False output as last step</span><br><span class="line">    stateful = True)) # True the final state or batch1 is feed into the initial state of the batch2</span><br><span class="line"># add output layer</span><br><span class="line">model.add(TimeDistributed(Dense(OUTPUT_SIZE))) # </span><br><span class="line">model.compile(optimizer=Adam(LR), loss=&apos;mse&apos;)</span><br><span class="line"></span><br><span class="line">for step in range(200):</span><br><span class="line">    x_batch, y_batch, xs = get_batch()</span><br><span class="line">    cost = model.train_on_batch(x_batch, y_batch)</span><br><span class="line">    predict = model.predict(x_batch, BATCH_SIZE)</span><br><span class="line"></span><br><span class="line">    plt.plot(xs[0, :], y_batch[0].flatten(), &apos;r&apos;, xs[0, :], predict.flatten()[:INPUT_LENGTH], &apos;b--&apos;)</span><br><span class="line">    plt.ylim(-1.5, 1.5)</span><br><span class="line">    plt.draw()</span><br><span class="line">    plt.pause(0.2)</span><br><span class="line">    if step % 10 == 0:</span><br><span class="line">        print(&apos;cost:&apos;, cost)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -436,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/23/机器学习中的数学-交叉熵/" rel="next" title="机器学习中的数学-交叉熵">
-                <i class="fa fa-chevron-left"></i> 机器学习中的数学-交叉熵
+              <a href="/2020/06/12/理论和代码-RNN-理论/" rel="next" title="理论和代码-RNN-理论">
+                <i class="fa fa-chevron-left"></i> 理论和代码-RNN-理论
               </a>
             
           </div>
@@ -445,10 +430,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/19/理论和代码-线性回归/" rel="prev" title="理论和代码-线性回归">
-                理论和代码-线性回归 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -792,26 +773,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
